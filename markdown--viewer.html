@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="ko" class="theme-light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Markdown Reading Viewer</title>
+  <style>
+/* ============================================================
+   Claude Style — Obsidian CSS Snippet
+   Mimics Anthropic Claude's UI: typography, tables, callouts,
+   code blocks, and overall warm minimal aesthetic.
+   ============================================================ */
+
+/* ── Root Variables ─────────────────────────────────────── */
+.theme-light, .theme-dark {
+  --claude-bg:           #faf9f7;
+  --claude-bg-dark:      #1a1915;
+  --claude-surface:      #ffffff;
+  --claude-surface-dark: #25231e;
+  --claude-border:       #e8e4dc;
+  --claude-border-dark:  #3a3830;
+  --claude-text:         #1a1915;
+  --claude-text-dark:    #f0ede6;
+  --claude-muted:        #6b6760;
+  --claude-muted-dark:   #908c84;
+  --claude-accent:       #d97757;   /* Claude orange */
+  --claude-accent-hover: #c4623e;
+  --claude-code-bg:      #f3f0ea;
+  --claude-code-bg-dark: #2e2c26;
+  --claude-table-head:   #f3f0ea;
+  --claude-table-head-dark: #2e2c26;
+  --claude-table-row:    #faf9f7;
+  --claude-table-alt:    #f7f5f0;
+
+  /* Font stack — Bookk Korean fonts with Claude-style fallbacks */
+  --font-text-theme:      "부크크 명조", "Söhne", ui-sans-serif, -apple-system,
+                          BlinkMacSystemFont, "Segoe UI", serif;
+  --font-monospace-theme: "Söhne Mono", "SFMono-Regular", Consolas,
+                          "Liberation Mono", Menlo, monospace;
+  --font-interface-theme: "부크크 고딕", "Söhne", ui-sans-serif, -apple-system,
+                          BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --font-text-size:      16px;
+  --line-height-normal:  1.75;
+  --radius-s:            6px;
+  --radius-m:            10px;
+  --radius-l:            14px;
+}
+
+/* ── Workspace Background ────────────────────────────────── */
+.theme-light .workspace-leaf-content[data-type="markdown"] .view-content,
+.theme-light .mod-cm6 .cm-scroller {
+  background-color: var(--claude-bg);
+}
+.theme-dark .workspace-leaf-content[data-type="markdown"] .view-content,
+.theme-dark .mod-cm6 .cm-scroller {
+  background-color: var(--claude-bg-dark);
+}
+
+/* ── Reading / Preview Pane ──────────────────────────────── */
+.markdown-reading-view .markdown-preview-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+.markdown-preview-view,
+.cm-content {
+  font-family: var(--font-text-theme);
+  font-size: var(--font-text-size);
+  line-height: var(--line-height-normal);
+  letter-spacing: -0.01em;
+}
+
+/* ── Heading Color Variables (hdOption) ──────────────────── */
+:root {
+  --h2-metal: #4a5568;
+  --h3-metal: #6b7d95;
+  --h4-metal: #8a9bb5;
+}
+
+/* Headings — hdOption 스타일 */
+.markdown-preview-view h1,
+.markdown-rendered h1,
+.markdown-source-view.mod-cm6 .HyperMD-header-1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 2rem 0 0.75rem;
+  border-top: 2px solid var(--h2-metal);
+  border-bottom: 2px solid var(--h2-metal);
+  background-color: rgba(74, 85, 104, 0.08);
+  text-align: center;
+  padding: 8px 0;
+}
+
+.markdown-preview-view h2,
+.markdown-rendered h2,
+.markdown-source-view.mod-cm6 .HyperMD-header-2 {
+  font-size: 1.2em;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+  margin: 1.8rem 0 0.6rem;
+  border-left: 3px solid var(--h2-metal);
+  border-bottom: 1px solid rgba(74, 85, 104, 0.4);
+  background-color: rgba(74, 85, 104, 0.06);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.12);
+  padding: 4px 8px;
+}
+
+.markdown-preview-view h3,
+.markdown-rendered h3,
+.markdown-source-view.mod-cm6 .HyperMD-header-3 {
+  font-size: 1.1em;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin: 1.5rem 0 0.5rem;
+  border-left: 3px solid var(--h3-metal);
+  padding: 2px 8px;
+}
+
+.markdown-preview-view h4,
+.markdown-rendered h4,
+.markdown-source-view.mod-cm6 .HyperMD-header-4 {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  padding: 1px 8px;
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-4 .cm-header-4::before {
+  content: "";
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  background-color: var(--h4-metal);
+  margin-right: 6px;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+.markdown-preview-view h5,
+.markdown-rendered h5,
+.markdown-source-view.mod-cm6 .HyperMD-header-5 {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  padding: 1px 8px;
+}
+.markdown-rendered h5::before {
+  content: "◼ ";
+  color: var(--h4-metal);
+}
+.markdown-source-view.mod-cm6 .HyperMD-header-5 .cm-header-5::before {
+  content: "";
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  background-color: var(--h4-metal);
+  margin-right: 6px;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+.markdown-preview-view h6 {
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--claude-muted);
+  margin: 1.2rem 0 0.4rem;
+}
+.theme-dark .markdown-preview-view h6 { color: var(--claude-muted-dark); }
+
+/* Paragraph spacing */
+.markdown-preview-view p { margin: 0 0 1em; }
+
+/* Links */
+.markdown-preview-view a,
+.cm-hmd-internal-link,
+.cm-url {
+  color: var(--claude-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+.markdown-preview-view a:hover {
+  border-bottom-color: var(--claude-accent);
+}
+
+/* Bold & Italic */
+.markdown-preview-view strong { font-weight: 650; }
+.markdown-preview-view em     { font-style: italic; color: inherit; }
+
+/* Horizontal rule */
+.markdown-preview-view hr {
+  border: none;
+  border-top: 1.5px solid var(--claude-border);
+  margin: 2rem 0;
+}
+.theme-dark .markdown-preview-view hr { border-color: var(--claude-border-dark); }
+
+/* ── Tables ──────────────────────────────────────────────── */
+.markdown-preview-view table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+  margin: 1.5rem 0;
+  background: transparent;
+  border: none;
+}
+
+.markdown-preview-view th {
+  background: transparent;
+  font-weight: 700;
+  font-size: 0.92em;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--claude-text);
+  padding: 0.55rem 1rem 0.55rem 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid var(--claude-text);
+  text-align: left;
+}
+.theme-dark .markdown-preview-view th {
+  color: var(--claude-text-dark);
+  border-bottom-color: var(--claude-text-dark);
+}
+
+.markdown-preview-view td {
+  padding: 0.6rem 1rem 0.6rem 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid var(--claude-border);
+  vertical-align: top;
+  background: transparent;
+}
+.theme-dark .markdown-preview-view td {
+  border-bottom-color: var(--claude-border-dark);
+}
+
+/* 첫 번째 열 볼드 */
+.markdown-preview-view td:first-child {
+  font-weight: 700;
+  white-space: nowrap;
+  padding-right: 1.5rem;
+}
+
+.markdown-preview-view tr:last-child td { border-bottom: none; }
+
+/* 짝수 행 배경, hover 제거 */
+.markdown-preview-view tbody tr:nth-child(even) { background: transparent; }
+.markdown-preview-view tbody tr:hover { background: transparent; }
+
+/* ── Inline Code ─────────────────────────────────────────── */
+.markdown-preview-view code,
+.cm-inline-code {
+  font-family: var(--font-monospace-theme);
+  font-size: 0.875em;
+  background-color: var(--claude-code-bg);
+  color: var(--claude-accent);
+  padding: 0.15em 0.45em;
+  border-radius: 5px;
+  border: 1px solid var(--claude-border);
+}
+.theme-dark .markdown-preview-view code,
+.theme-dark .cm-inline-code {
+  background-color: var(--claude-code-bg-dark);
+  border-color: var(--claude-border-dark);
+  color: #e8a98a;
+}
+
+/* ── Code Blocks ─────────────────────────────────────────── */
+.markdown-preview-view pre {
+  background-color: var(--claude-code-bg);
+  border: 1.5px solid var(--claude-border);
+  border-radius: var(--radius-m);
+  padding: 1.1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+}
+.theme-dark .markdown-preview-view pre {
+  background-color: var(--claude-code-bg-dark);
+  border-color: var(--claude-border-dark);
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.markdown-preview-view pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--claude-text);
+  font-size: 0.875em;
+  line-height: 1.65;
+}
+.theme-dark .markdown-preview-view pre code {
+  color: var(--claude-text-dark);
+}
+
+/* ── Blockquotes ─────────────────────────────────────────── */
+.markdown-preview-view blockquote {
+  border-left: 3px solid var(--claude-accent);
+  margin: 1.25rem 0;
+  padding: 0.6rem 1.1rem;
+  background: rgba(217, 119, 87, 0.06);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  color: var(--claude-muted);
+  font-style: italic;
+}
+.theme-dark .markdown-preview-view blockquote {
+  color: var(--claude-muted-dark);
+  background: rgba(217, 119, 87, 0.08);
+}
+
+/* ── Lists ───────────────────────────────────────────────── */
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 1rem;
+}
+.markdown-preview-view li { margin-bottom: 0.3rem; }
+
+.markdown-preview-view ul > li::marker {
+  color: var(--claude-accent);
+}
+.markdown-preview-view ol > li::marker {
+  color: var(--claude-accent);
+  font-weight: 600;
+}
+
+/* ── Checkboxes (Task Lists) ─────────────────────────────── */
+.markdown-preview-view .task-list-item-checkbox {
+  appearance: none;
+  width: 1.05em;
+  height: 1.05em;
+  border: 2px solid var(--claude-border);
+  border-radius: 4px;
+  margin-right: 0.45em;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  background: var(--claude-surface);
+}
+.markdown-preview-view .task-list-item-checkbox:checked {
+  background: var(--claude-accent);
+  border-color: var(--claude-accent);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 65%;
+}
+.markdown-preview-view li.task-list-item[data-task="x"] > p,
+.markdown-preview-view li.task-list-item[data-task="X"] > p {
+  text-decoration: line-through;
+  color: var(--claude-muted);
+}
+
+/* ── Callouts ────────────────────────────────────────────── */
+.markdown-preview-view .callout {
+  border-radius: var(--radius-m);
+  border: 1.5px solid var(--claude-border);
+  padding: 0.9rem 1.1rem;
+  margin: 1.25rem 0;
+  background: var(--claude-surface);
+}
+.theme-dark .markdown-preview-view .callout {
+  border-color: var(--claude-border-dark);
+  background: var(--claude-surface-dark);
+}
+
+.markdown-preview-view .callout-title {
+  font-weight: 650;
+  font-size: 0.9em;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-preview-view .callout[data-callout="note"] {
+  border-left: 3.5px solid #5b9bd5;
+  background: rgba(91, 155, 213, 0.05);
+}
+.markdown-preview-view .callout[data-callout="tip"],
+.markdown-preview-view .callout[data-callout="hint"] {
+  border-left: 3.5px solid #4caf7d;
+  background: rgba(76, 175, 125, 0.05);
+}
+.markdown-preview-view .callout[data-callout="warning"],
+.markdown-preview-view .callout[data-callout="caution"] {
+  border-left: 3.5px solid #e8a838;
+  background: rgba(232, 168, 56, 0.05);
+}
+.markdown-preview-view .callout[data-callout="danger"],
+.markdown-preview-view .callout[data-callout="error"] {
+  border-left: 3.5px solid #e05555;
+  background: rgba(224, 85, 85, 0.05);
+}
+.markdown-preview-view .callout[data-callout="info"] {
+  border-left: 3.5px solid var(--claude-accent);
+  background: rgba(217, 119, 87, 0.05);
+}
+
+/* ── Tags ────────────────────────────────────────────────── */
+.tag {
+  background: rgba(217, 119, 87, 0.1);
+  color: var(--claude-accent);
+  border: 1px solid rgba(217, 119, 87, 0.25);
+  border-radius: 99px;
+  padding: 0.1em 0.6em;
+  font-size: 0.8em;
+  font-weight: 500;
+  text-decoration: none;
+}
+.tag:hover {
+  background: rgba(217, 119, 87, 0.18);
+  text-decoration: none;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--claude-border);
+  border-radius: 99px;
+}
+.theme-dark ::-webkit-scrollbar-thumb { background: var(--claude-border-dark); }
+::-webkit-scrollbar-thumb:hover { background: var(--claude-muted); }
+
+/* ── Properties Panel ────────────────────────────────────── */
+.metadata-container {
+  font-size: 0.88em;
+  border: 1.5px solid var(--claude-border);
+  border-radius: var(--radius-m);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  background: var(--claude-surface);
+}
+.theme-dark .metadata-container {
+  border-color: var(--claude-border-dark);
+  background: var(--claude-surface-dark);
+}
+
+/* ── Selection ───────────────────────────────────────────── */
+::selection {
+  background: rgba(217, 119, 87, 0.22);
+}
+
+
+/* ============================================================
+   Web viewer adapter: Obsidian CSS를 일반 브라우저 읽기모드에 맞춤
+   ============================================================ */
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  background: var(--claude-bg);
+  color: var(--claude-text);
+  font-family: var(--font-interface-theme);
+}
+html.theme-dark body {
+  background: var(--claude-bg-dark);
+  color: var(--claude-text-dark);
+}
+.app-shell { min-height: 100vh; }
+.viewer-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  background: color-mix(in srgb, var(--claude-bg) 88%, white);
+  border-bottom: 1px solid var(--claude-border);
+  backdrop-filter: blur(10px);
+}
+html.theme-dark .viewer-toolbar {
+  background: color-mix(in srgb, var(--claude-bg-dark) 88%, black);
+  border-bottom-color: var(--claude-border-dark);
+}
+.viewer-title {
+  font-weight: 700;
+  margin-right: auto;
+  white-space: nowrap;
+}
+.viewer-toolbar button,
+.viewer-toolbar label.file-button {
+  border: 1px solid var(--claude-border);
+  background: var(--claude-surface);
+  color: var(--claude-text);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-family: var(--font-interface-theme);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+html.theme-dark .viewer-toolbar button,
+html.theme-dark .viewer-toolbar label.file-button {
+  border-color: var(--claude-border-dark);
+  background: var(--claude-surface-dark);
+  color: var(--claude-text-dark);
+}
+.viewer-toolbar button:hover,
+.viewer-toolbar label.file-button:hover {
+  border-color: var(--claude-accent);
+}
+#mdFile { display: none; }
+.web-drop-zone {
+  border: 1.5px dashed var(--claude-border);
+  border-radius: var(--radius-l);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--claude-muted);
+  background: rgba(217, 119, 87, 0.04);
+  font-family: var(--font-interface-theme);
+}
+html.theme-dark .web-drop-zone {
+  border-color: var(--claude-border-dark);
+  color: var(--claude-muted-dark);
+  background: rgba(217, 119, 87, 0.07);
+}
+.markdown-reading-view .markdown-preview-section {
+  width: min(100%, 720px);
+}
+.markdown-preview-view { color: var(--claude-text); }
+html.theme-dark .markdown-preview-view { color: var(--claude-text-dark); }
+.markdown-preview-view img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: var(--radius-m);
+}
+.markdown-preview-view .math-display { overflow-x: auto; }
+.empty-hint {
+  color: var(--claude-muted);
+  font-family: var(--font-interface-theme);
+}
+html.theme-dark .empty-hint { color: var(--claude-muted-dark); }
+@media (max-width: 640px) {
+  .viewer-toolbar { gap: 0.4rem; padding: 0.55rem 0.65rem; }
+  .viewer-title { font-size: 0.92rem; }
+  .viewer-toolbar button,
+  .viewer-toolbar label.file-button { padding: 0.38rem 0.55rem; font-size: 0.8rem; }
+  .markdown-reading-view .markdown-preview-section { padding: 1.4rem 1rem; }
+}
+@media print {
+  .viewer-toolbar, .web-drop-zone { display: none !important; }
+  body { background: #fff; }
+  .markdown-reading-view .markdown-preview-section { max-width: 100%; padding: 0; }
+}
+  </style>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="viewer-toolbar">
+      <div class="viewer-title">Markdown Reading Viewer</div>
+      <label class="file-button" for="mdFile">MD 열기</label>
+      <input id="mdFile" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" />
+      <button id="sampleBtn" type="button">예시</button>
+      <button id="themeBtn" type="button">다크모드</button>
+      <button id="printBtn" type="button">인쇄/PDF</button>
+    </div>
+
+    <main class="workspace-leaf-content markdown-reading-view" data-type="markdown">
+      <article class="markdown-preview-section markdown-preview-view markdown-rendered" id="preview">
+        <div class="web-drop-zone" id="dropZone">
+          데스크탑에서는 .md 파일을 이 영역에 끌어다 놓거나, <strong>MD 열기</strong>를 누르면 된다. 모바일에서는 <strong>MD 열기</strong>로 파일을 선택하면 된다.
+        </div>
+        <p class="empty-hint">아직 불러온 Markdown 문서가 없다.</p>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    const preview = document.getElementById('preview');
+    const fileInput = document.getElementById('mdFile');
+    const themeBtn = document.getElementById('themeBtn');
+    const sampleBtn = document.getElementById('sampleBtn');
+    const printBtn = document.getElementById('printBtn');
+    const dropZone = document.getElementById('dropZone');
+
+    const sampleMarkdown = `# 읽기모드 예시
+
+## 핵심 개념
+
+이 HTML은 Markdown 문서를 브라우저에서 읽기모드로 렌더링한다. 첨부 CSS의 \`markdown-preview-view\` 선택자를 그대로 살리기 위해 본문 영역에 같은 클래스명을 부여했다.
+
+> 인용문, 표, 코드, 목록, 체크박스가 모두 CSS 스타일을 따라간다.
+
+### 표 예시
+
+| 항목 | 설명 |
+|---|---|
+| 데스크탑 | 파일 끌어놓기 또는 MD 열기 |
+| 모바일 | MD 열기 버튼 사용 |
+
+### 수식 예시
+
+인라인 수식 $a^2+b^2=c^2$ 과 디스플레이 수식도 가능하다.
+
+$$
+E(X)=\sum x_i p_i
+$$
+
+### 할 일
+
+- [x] CSS 적용
+- [x] Markdown 렌더링
+- [ ] 필요한 기능 추가
+
+\`inline code\`
+
+\`\`\`js
+console.log("Markdown Reading Viewer");
+\`\`\`
+`;
+
+    function convertObsidianCallouts(md) {
+      return md.replace(/^> \[!(\w+)\][+-]?\s*(.*)$/gmi, (_, type, title) => {
+        const label = title?.trim() || type.toUpperCase();
+        return `<div class="callout" data-callout="${type.toLowerCase()}"><div class="callout-title">${label}</div>`;
+      }).replace(/^(?!>)(\s*)$/gm, '$1');
+    }
+
+    function renderMarkdown(md) {
+      const source = convertObsidianCallouts(md);
+      marked.setOptions({ gfm: true, breaks: false });
+      const rawHtml = marked.parse(source);
+      const safeHtml = DOMPurify.sanitize(rawHtml, { ADD_ATTR: ['target'] });
+      preview.innerHTML = safeHtml;
+      if (window.MathJax?.typesetPromise) MathJax.typesetPromise([preview]);
+    }
+
+    async function loadFile(file) {
+      if (!file) return;
+      const text = await file.text();
+      renderMarkdown(text);
+      document.title = file.name + ' - Markdown Reading Viewer';
+    }
+
+    fileInput.addEventListener('change', (e) => loadFile(e.target.files[0]));
+    sampleBtn.addEventListener('click', () => renderMarkdown(sampleMarkdown));
+    printBtn.addEventListener('click', () => window.print());
+
+    themeBtn.addEventListener('click', () => {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('theme-dark');
+      html.classList.toggle('theme-light', !isDark);
+      themeBtn.textContent = isDark ? '라이트모드' : '다크모드';
+      localStorage.setItem('md-viewer-theme', isDark ? 'dark' : 'light');
+    });
+
+    const savedTheme = localStorage.getItem('md-viewer-theme');
+    if (savedTheme === 'dark') themeBtn.click();
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      preview.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone?.classList.add('is-dragging');
+      });
+    });
+    ['dragleave', 'drop'].forEach(eventName => {
+      preview.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone?.classList.remove('is-dragging');
+      });
+    });
+    preview.addEventListener('drop', (e) => loadFile(e.dataTransfer.files[0]));
+  </script>
+</body>
+</html>
