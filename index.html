@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily News 모음</title>
+<style>
+  :root{
+    --bg:#f7f7f8; --card:#ffffff; --border:#e4e4e7; --text:#18181b;
+    --muted:#6b7280; --accent:#2563eb; --accent-light:#eff6ff; --chip:#f1f5f9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg); color:var(--text);
+  }
+  header{
+    background:var(--card); border-bottom:1px solid var(--border);
+    padding:20px 24px; position:sticky; top:0; z-index:10;
+  }
+  header h1{margin:0 0 12px; font-size:20px;}
+  .controls{display:flex; flex-wrap:wrap; gap:10px; align-items:center;}
+  .controls input[type="search"]{
+    flex:1; min-width:200px; padding:9px 14px; border:1px solid var(--border);
+    border-radius:8px; font-size:14px; background:#fff;
+  }
+  select{
+    padding:9px 10px; border:1px solid var(--border); border-radius:8px;
+    font-size:14px; background:#fff; color:var(--text);
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+  .chip{
+    padding:5px 12px; border-radius:999px; border:1px solid var(--border);
+    background:var(--chip); font-size:13px; cursor:pointer; user-select:none;
+    color:var(--muted);
+  }
+  .chip.active{background:var(--accent); border-color:var(--accent); color:#fff;}
+  main{padding:20px 24px; max-width:900px; margin:0 auto;}
+  .meta-bar{color:var(--muted); font-size:13px; margin-bottom:14px;}
+  .article{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    padding:16px 18px; margin-bottom:12px;
+  }
+  .article-head{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;}
+  .article h3{margin:0; font-size:16px; line-height:1.4;}
+  .tag{
+    display:inline-block; font-size:12px; padding:2px 9px; border-radius:6px;
+    background:var(--accent-light); color:var(--accent); font-weight:600; white-space:nowrap;
+  }
+  .article-sub{font-size:12.5px; color:var(--muted); margin:6px 0 10px;}
+  .article-body{font-size:14px; line-height:1.65; color:#27272a;}
+  .article a{color:var(--accent); text-decoration:none; font-size:13px;}
+  .article a:hover{text-decoration:underline;}
+  .empty{text-align:center; color:var(--muted); padding:60px 0; font-size:14px;}
+  footer{text-align:center; color:var(--muted); font-size:12px; padding:24px;}
+  @media (max-width:600px){
+    header,main{padding:14px;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>📰 Daily News 모음</h1>
+  <div class="controls">
+    <input type="search" id="searchInput" placeholder="제목·본문·출처 검색...">
+    <select id="dateSelect">
+      <option value="">전체 날짜</option>
+    </select>
+  </div>
+  <div class="chip-row" id="categoryChips"></div>
+</header>
+<main>
+  <div class="meta-bar" id="resultCount"></div>
+  <div id="articleList"></div>
+</main>
+<footer>총 <span id="totalCount">0</span>건의 뉴스 · CLAUDE 폴더 자동 생성</footer>
+
+<script>
+const CATEGORY_ICONS = {
+  "정치":"🏛️","국제":"🌍","경제":"💰","사회":"🚨","문화":"🎭",
+  "스포츠":"⚽","IT":"💻","과학":"🚀","교육":"🎓","비지니스":"📊","수학":"📐"
+};
+
+let allArticles = [];
+let activeCategories = new Set();
+
+async function init(){
+  const res = await fetch('articles.json');
+  allArticles = await res.json();
+
+  // 날짜 옵션 (최신순)
+  const dates = [...new Set(allArticles.map(a => a.fileDate))].sort().reverse();
+  const dateSelect = document.getElementById('dateSelect');
+  for (const d of dates){
+    const opt = document.createElement('option');
+    opt.value = d; opt.textContent = d;
+    dateSelect.appendChild(opt);
+  }
+
+  // 카테고리 칩 (md 파일 등장 순서 기준)
+  const cats = [...new Set(allArticles.map(a => a.category))];
+  const orderRef = Object.keys(CATEGORY_ICONS);
+  cats.sort((a,b) => orderRef.indexOf(a) - orderRef.indexOf(b));
+  const chipRow = document.getElementById('categoryChips');
+  for (const c of cats){
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.textContent = `${CATEGORY_ICONS[c]||''} ${c}`;
+    chip.dataset.cat = c;
+    chip.addEventListener('click', () => {
+      if (activeCategories.has(c)){
+        activeCategories.delete(c); chip.classList.remove('active');
+      } else {
+        activeCategories.add(c); chip.classList.add('active');
+      }
+      render();
+    });
+    chipRow.appendChild(chip);
+  }
+
+  document.getElementById('searchInput').addEventListener('input', render);
+  dateSelect.addEventListener('change', render);
+
+  document.getElementById('totalCount').textContent = allArticles.length;
+  render();
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function highlight(text, term){
+  if (!term) return escapeHtml(text);
+  const escaped = escapeHtml(text);
+  const safeTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return escaped.replace(new RegExp(safeTerm, 'gi'), m => `<mark>${m}</mark>`);
+}
+
+function render(){
+  const term = document.getElementById('searchInput').value.trim();
+  const date = document.getElementById('dateSelect').value;
+
+  let filtered = allArticles.filter(a => {
+    if (date && a.fileDate !== date) return false;
+    if (activeCategories.size > 0 && !activeCategories.has(a.category)) return false;
+    if (term){
+      const hay = (a.title + ' ' + a.body + ' ' + a.source).toLowerCase();
+      if (!hay.includes(term.toLowerCase())) return false;
+    }
+    return true;
+  });
+
+  filtered.sort((a,b) => (b.fileDate.localeCompare(a.fileDate)) || (a.id - b.id));
+
+  const list = document.getElementById('articleList');
+  document.getElementById('resultCount').textContent = `${filtered.length}건 표시 중`;
+
+  if (filtered.length === 0){
+    list.innerHTML = '<div class="empty">조건에 맞는 뉴스가 없습니다.</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(a => `
+    <div class="article">
+      <div class="article-head">
+        <h3>${highlight(a.title, term)}</h3>
+        <span class="tag">${CATEGORY_ICONS[a.category]||''} ${a.category}</span>
+      </div>
+      <div class="article-sub">${a.fileDate} · ${escapeHtml(a.source)} ${a.date ? '· ' + escapeHtml(a.date) : ''}</div>
+      <div class="article-body">${highlight(a.body, term)}</div>
+      ${a.link ? `<div style="margin-top:8px;"><a href="${escapeHtml(a.link)}" target="_blank" rel="noopener">원문 보기 →</a></div>` : ''}
+    </div>
+  `).join('');
+}
+
+init();
+</script>
+</body>
+</html>
