@@ -4,103 +4,151 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily News 모음</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard-Regular:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f7f7f8; --card:#ffffff; --border:#e4e4e7; --text:#18181b;
-    --muted:#6b7280; --accent:#2563eb; --accent-light:#eff6ff; --chip:#f1f5f9;
-    --star:#f59e0b;
+    --bg:#F7F4EC;            /* 따뜻한 종이톤 배경 */
+    --bg-deep:#F0EBDF;
+    --card:#FFFFFF;
+    --card-alt:#FBF8F1;
+    --border:#E6DFD0;
+    --border-soft:#EFE9DB;
+    --text:#2B2722;          /* 차분한 다크 브라운 */
+    --text-soft:#564F45;
+    --muted:#8C8273;
+    --accent:#C2683F;        /* 클로드 톤의 테라코타 */
+    --accent-deep:#A2522F;
+    --accent-light:#F1E1D0;
+    --chip:#EFE8D9;
+    --star:#B08322;
+    --ring: rgba(194,104,63,.22);
+    --serif: "Noto Serif KR", Georgia, "Apple SD Gothic Neo", serif;
+    --sans: "Pretendard-Regular", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   }
   *{box-sizing:border-box;}
   body{
-    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    margin:0; font-family:var(--sans);
     background:var(--bg); color:var(--text);
+    -webkit-font-smoothing:antialiased;
   }
   header{
-    background:var(--card); border-bottom:1px solid var(--border);
-    padding:20px 24px; position:sticky; top:0; z-index:10;
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+    padding:22px 28px 18px;
+    position:sticky; top:0; z-index:10;
   }
-  .header-top{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;}
-  .header-top h1{margin:0; font-size:20px;}
+  .header-top{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:14px;}
+  .header-top h1{
+    margin:0; font-size:21px; font-family:var(--serif); font-weight:700;
+    color:var(--text); letter-spacing:.2px; display:flex; align-items:center; gap:8px;
+  }
+  .header-top h1 .mark{
+    display:inline-block; width:9px; height:9px; border-radius:50%;
+    background:var(--accent);
+  }
   .auth-area{display:flex; align-items:center; gap:8px; font-size:13px;}
-  .auth-area .user-name{color:var(--text); font-weight:600;}
+  .auth-area .user-name{color:var(--text-soft); font-weight:500;}
   .btn{
     padding:7px 14px; border-radius:8px; border:1px solid var(--border);
-    background:#fff; font-size:13px; cursor:pointer; color:var(--text);
+    background:var(--card); font-size:13px; cursor:pointer; color:var(--text-soft);
+    font-family:var(--sans); transition:background .15s, border-color .15s;
   }
   .btn:hover{background:var(--chip);}
   .btn-primary{background:var(--accent); border-color:var(--accent); color:#fff;}
-  .btn-primary:hover{background:#1d4ed8;}
+  .btn-primary:hover{background:var(--accent-deep);}
   .controls{display:flex; flex-wrap:wrap; gap:10px; align-items:center;}
   .controls input[type="search"]{
-    flex:1; min-width:200px; padding:9px 14px; border:1px solid var(--border);
-    border-radius:8px; font-size:14px; background:#fff;
+    flex:1; min-width:200px; padding:10px 14px; border:1px solid var(--border);
+    border-radius:9px; font-size:14px; background:var(--card); color:var(--text);
+    font-family:var(--sans); outline:none; transition:box-shadow .15s, border-color .15s;
   }
+  .controls input[type="search"]:focus{border-color:var(--accent); box-shadow:0 0 0 3px var(--ring);}
   select{
-    padding:9px 10px; border:1px solid var(--border); border-radius:8px;
-    font-size:14px; background:#fff; color:var(--text);
+    padding:9px 10px; border:1px solid var(--border); border-radius:9px;
+    font-size:14px; background:var(--card); color:var(--text); font-family:var(--sans);
+    outline:none;
   }
-  .chip-row{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+  select:focus{border-color:var(--accent); box-shadow:0 0 0 3px var(--ring);}
+  .chip-row{display:flex; flex-wrap:wrap; gap:7px; margin-top:11px;}
   .chip{
-    padding:5px 12px; border-radius:999px; border:1px solid var(--border);
+    padding:5px 13px; border-radius:999px; border:1px solid var(--border);
     background:var(--chip); font-size:13px; cursor:pointer; user-select:none;
-    color:var(--muted);
+    color:var(--text-soft); transition:background .15s, color .15s, border-color .15s;
   }
   .chip.active{background:var(--accent); border-color:var(--accent); color:#fff;}
-  .chip.scrap-chip{border-color:var(--star); color:var(--star);}
+  .chip.scrap-chip{border-color:#E3CD93; color:var(--star); background:#FBF3DE;}
   .chip.scrap-chip.active{background:var(--star); border-color:var(--star); color:#fff;}
   .chip.disabled{opacity:.45; cursor:not-allowed;}
-  main{padding:20px 24px; max-width:900px; margin:0 auto;}
-  .meta-bar{color:var(--muted); font-size:13px; margin-bottom:14px;}
+  main{padding:26px 28px 40px; max-width:760px; margin:0 auto;}
+  .meta-bar{color:var(--muted); font-size:13px; margin-bottom:16px; font-family:var(--sans);}
   .article{
-    background:var(--card); border:1px solid var(--border); border-radius:10px;
-    padding:16px 18px; margin-bottom:12px; position:relative;
+    background:var(--card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:22px 26px; margin-bottom:18px; position:relative;
+    box-shadow:0 1px 2px rgba(43,39,34,.04);
   }
-  .article-head{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;}
-  .article h3{margin:0; font-size:16px; line-height:1.4; flex:1;}
-  .head-right{display:flex; align-items:center; gap:8px;}
+  .article-head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;}
+  .article h3{
+    margin:0; font-size:18.5px; line-height:1.5; flex:1; font-family:var(--serif);
+    font-weight:700; color:var(--text);
+  }
+  .head-right{display:flex; align-items:center; gap:9px; padding-top:2px;}
   .tag{
-    display:inline-block; font-size:12px; padding:2px 9px; border-radius:6px;
-    background:var(--accent-light); color:var(--accent); font-weight:600; white-space:nowrap;
+    display:inline-block; font-size:11.5px; padding:3px 10px; border-radius:6px;
+    background:var(--accent-light); color:var(--accent-deep); font-weight:600; white-space:nowrap;
+    font-family:var(--sans);
   }
   .scrap-btn{
-    background:none; border:none; cursor:pointer; font-size:18px; line-height:1;
-    color:#d1d5db; padding:0 2px;
+    background:none; border:none; cursor:pointer; font-size:19px; line-height:1;
+    color:#D8CFBE; padding:0 2px; transition:color .15s, transform .1s;
   }
+  .scrap-btn:hover{transform:scale(1.1);}
   .scrap-btn.scrapped{color:var(--star);}
   .scrap-btn:disabled{cursor:not-allowed; opacity:.4;}
-  .article-sub{font-size:12.5px; color:var(--muted); margin:6px 0 10px;}
-  .article-body{font-size:14px; line-height:1.65; color:#27272a;}
-  .article a{color:var(--accent); text-decoration:none; font-size:13px;}
+  .article-sub{
+    font-size:12.5px; color:var(--muted); margin:8px 0 14px; font-family:var(--sans);
+    border-bottom:1px solid var(--border-soft); padding-bottom:12px;
+  }
+  .article-body{font-size:15.5px; line-height:1.85; color:var(--text-soft); font-family:var(--serif);}
+  .article-link{margin-top:14px;}
+  .article a{color:var(--accent-deep); text-decoration:none; font-size:13px; font-family:var(--sans); font-weight:600;}
   .article a:hover{text-decoration:underline;}
-  .empty{text-align:center; color:var(--muted); padding:60px 0; font-size:14px;}
-  footer{text-align:center; color:var(--muted); font-size:12px; padding:24px;}
+  .article a.source-link{color:var(--muted); font-weight:500;}
+  mark{background:var(--accent-light); color:var(--accent-deep); border-radius:3px; padding:0 2px;}
+  .empty{text-align:center; color:var(--muted); padding:70px 0; font-size:14px; font-family:var(--serif);}
+  footer{text-align:center; color:var(--muted); font-size:12px; padding:26px; font-family:var(--sans);}
 
   .modal-overlay{
-    position:fixed; inset:0; background:rgba(0,0,0,0.45);
+    position:fixed; inset:0; background:rgba(43,39,34,0.45);
     display:none; align-items:center; justify-content:center; z-index:100; padding:16px;
   }
   .modal-overlay.open{display:flex;}
   .modal-box{
-    background:#fff; border-radius:12px; padding:24px; width:100%; max-width:340px;
+    background:var(--card); border-radius:14px; padding:26px; width:100%; max-width:340px;
+    box-shadow:0 12px 32px rgba(43,39,34,.18);
   }
-  .modal-box h2{margin:0 0 4px; font-size:17px;}
-  .modal-sub{color:var(--muted); font-size:13px; margin:0 0 16px;}
-  .modal-box label{font-size:13px; color:var(--text); display:block; margin-bottom:5px;}
+  .modal-box h2{margin:0 0 4px; font-size:18px; font-family:var(--serif); color:var(--text);}
+  .modal-sub{color:var(--muted); font-size:13px; margin:0 0 18px; font-family:var(--sans);}
+  .modal-box label{font-size:13px; color:var(--text-soft); display:block; margin-bottom:5px; font-family:var(--sans);}
   .modal-box input{
-    width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:8px;
-    font-size:14px; margin-bottom:12px;
+    width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:9px;
+    font-size:14px; margin-bottom:13px; font-family:var(--sans); outline:none;
   }
-  .modal-error{color:#dc2626; font-size:12.5px; margin:-4px 0 12px; min-height:14px;}
+  .modal-box input:focus{border-color:var(--accent); box-shadow:0 0 0 3px var(--ring);}
+  .modal-error{color:#A23B2E; font-size:12.5px; margin:-4px 0 12px; min-height:14px; font-family:var(--sans);}
   .modal-actions{display:flex; gap:8px; margin-top:4px;}
   .modal-actions .btn{flex:1;}
-  .modal-switch{text-align:center; margin-top:14px; font-size:13px; color:var(--muted);}
-  .modal-switch a{color:var(--accent); cursor:pointer; text-decoration:none;}
+  .modal-switch{text-align:center; margin-top:16px; font-size:13px; color:var(--muted); font-family:var(--sans);}
+  .modal-switch a{color:var(--accent-deep); cursor:pointer; text-decoration:none; font-weight:600;}
   .modal-close{
     position:absolute; top:14px; right:16px; cursor:pointer; color:var(--muted);
     background:none; border:none; font-size:18px;
   }
   @media (max-width:600px){
-    header,main{padding:14px;}
+    header{padding:16px 18px 14px;}
+    main{padding:18px 16px 32px;}
+    .article{padding:18px 18px;}
   }
 </style>
 </head>
@@ -377,6 +425,23 @@ function highlight(text, term){
   return escaped.replace(new RegExp(safeTerm, 'gi'), m => `<mark>${m}</mark>`);
 }
 
+/* 링크가 기사 본문의 정확한 주소인지, 단순 출처 사이트(홈/섹션) 주소인지 추정.
+   경로가 거의 없거나 짧고 숫자 ID도 없으면 "일반 출처 사이트"로 간주. */
+function isSpecificArticleLink(url){
+  try {
+    const u = new URL(url);
+    const path = u.pathname.replace(/\/+$/, '');
+    if (!path || path === '') return false;
+    const segments = path.split('/').filter(Boolean);
+    const hasLongId = /\d{4,}/.test(path);
+    if (segments.length >= 2) return true;
+    if (segments.length === 1 && (segments[0].length > 20 || hasLongId)) return true;
+    return false;
+  } catch {
+    return false;
+  }
+}
+
 function render(){
   const term = document.getElementById('searchInput').value.trim();
   const date = document.getElementById('dateSelect').value;
@@ -418,10 +483,17 @@ function render(){
       </div>
       <div class="article-sub">${a.fileDate} · ${escapeHtml(a.source)} ${a.date ? '· ' + escapeHtml(a.date) : ''}</div>
       <div class="article-body">${highlight(a.body, term)}</div>
-      ${a.link ? `<div style="margin-top:8px;"><a href="${escapeHtml(a.link)}" target="_blank" rel="noopener">원문 보기 →</a></div>` : ''}
+      ${a.link ? renderLink(a.link) : ''}
     </div>
   `;
   }).join('');
+
+  function renderLink(link){
+    const specific = isSpecificArticleLink(link);
+    const label = specific ? '원문 보기 →' : '출처 사이트 보기 →';
+    const cls = specific ? '' : 'source-link';
+    return `<div class="article-link"><a class="${cls}" href="${escapeHtml(link)}" target="_blank" rel="noopener">${label}</a></div>`;
+  }
 
   list.querySelectorAll('.scrap-btn').forEach(btn => {
     btn.addEventListener('click', () => toggleScrap(Number(btn.dataset.id)));
