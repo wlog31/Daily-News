@@ -8,6 +8,7 @@
   :root{
     --bg:#f7f7f8; --card:#ffffff; --border:#e4e4e7; --text:#18181b;
     --muted:#6b7280; --accent:#2563eb; --accent-light:#eff6ff; --chip:#f1f5f9;
+    --star:#f59e0b;
   }
   *{box-sizing:border-box;}
   body{
@@ -18,7 +19,17 @@
     background:var(--card); border-bottom:1px solid var(--border);
     padding:20px 24px; position:sticky; top:0; z-index:10;
   }
-  header h1{margin:0 0 12px; font-size:20px;}
+  .header-top{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;}
+  .header-top h1{margin:0; font-size:20px;}
+  .auth-area{display:flex; align-items:center; gap:8px; font-size:13px;}
+  .auth-area .user-name{color:var(--text); font-weight:600;}
+  .btn{
+    padding:7px 14px; border-radius:8px; border:1px solid var(--border);
+    background:#fff; font-size:13px; cursor:pointer; color:var(--text);
+  }
+  .btn:hover{background:var(--chip);}
+  .btn-primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .btn-primary:hover{background:#1d4ed8;}
   .controls{display:flex; flex-wrap:wrap; gap:10px; align-items:center;}
   .controls input[type="search"]{
     flex:1; min-width:200px; padding:9px 14px; border:1px solid var(--border);
@@ -35,24 +46,59 @@
     color:var(--muted);
   }
   .chip.active{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .chip.scrap-chip{border-color:var(--star); color:var(--star);}
+  .chip.scrap-chip.active{background:var(--star); border-color:var(--star); color:#fff;}
+  .chip.disabled{opacity:.45; cursor:not-allowed;}
   main{padding:20px 24px; max-width:900px; margin:0 auto;}
   .meta-bar{color:var(--muted); font-size:13px; margin-bottom:14px;}
   .article{
     background:var(--card); border:1px solid var(--border); border-radius:10px;
-    padding:16px 18px; margin-bottom:12px;
+    padding:16px 18px; margin-bottom:12px; position:relative;
   }
   .article-head{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;}
-  .article h3{margin:0; font-size:16px; line-height:1.4;}
+  .article h3{margin:0; font-size:16px; line-height:1.4; flex:1;}
+  .head-right{display:flex; align-items:center; gap:8px;}
   .tag{
     display:inline-block; font-size:12px; padding:2px 9px; border-radius:6px;
     background:var(--accent-light); color:var(--accent); font-weight:600; white-space:nowrap;
   }
+  .scrap-btn{
+    background:none; border:none; cursor:pointer; font-size:18px; line-height:1;
+    color:#d1d5db; padding:0 2px;
+  }
+  .scrap-btn.scrapped{color:var(--star);}
+  .scrap-btn:disabled{cursor:not-allowed; opacity:.4;}
   .article-sub{font-size:12.5px; color:var(--muted); margin:6px 0 10px;}
   .article-body{font-size:14px; line-height:1.65; color:#27272a;}
   .article a{color:var(--accent); text-decoration:none; font-size:13px;}
   .article a:hover{text-decoration:underline;}
   .empty{text-align:center; color:var(--muted); padding:60px 0; font-size:14px;}
   footer{text-align:center; color:var(--muted); font-size:12px; padding:24px;}
+
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,0.45);
+    display:none; align-items:center; justify-content:center; z-index:100; padding:16px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:#fff; border-radius:12px; padding:24px; width:100%; max-width:340px;
+  }
+  .modal-box h2{margin:0 0 4px; font-size:17px;}
+  .modal-sub{color:var(--muted); font-size:13px; margin:0 0 16px;}
+  .modal-box label{font-size:13px; color:var(--text); display:block; margin-bottom:5px;}
+  .modal-box input{
+    width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:8px;
+    font-size:14px; margin-bottom:12px;
+  }
+  .modal-error{color:#dc2626; font-size:12.5px; margin:-4px 0 12px; min-height:14px;}
+  .modal-actions{display:flex; gap:8px; margin-top:4px;}
+  .modal-actions .btn{flex:1;}
+  .modal-switch{text-align:center; margin-top:14px; font-size:13px; color:var(--muted);}
+  .modal-switch a{color:var(--accent); cursor:pointer; text-decoration:none;}
+  .modal-close{
+    position:absolute; top:14px; right:16px; cursor:pointer; color:var(--muted);
+    background:none; border:none; font-size:18px;
+  }
   @media (max-width:600px){
     header,main{padding:14px;}
   }
@@ -60,7 +106,10 @@
 </head>
 <body>
 <header>
-  <h1>📰 Daily News 모음</h1>
+  <div class="header-top">
+    <h1>📰 Daily News 모음</h1>
+    <div class="auth-area" id="authArea"></div>
+  </div>
   <div class="controls">
     <input type="search" id="searchInput" placeholder="제목·본문·출처 검색...">
     <select id="dateSelect">
@@ -68,6 +117,9 @@
     </select>
   </div>
   <div class="chip-row" id="categoryChips"></div>
+  <div class="chip-row">
+    <div class="chip scrap-chip" id="scrapChip">⭐ 스크랩한 뉴스만 보기</div>
+  </div>
 </header>
 <main>
   <div class="meta-bar" id="resultCount"></div>
@@ -75,20 +127,192 @@
 </main>
 <footer>총 <span id="totalCount">0</span>건의 뉴스 · CLAUDE 폴더 자동 생성</footer>
 
+<div class="modal-overlay" id="authModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalCloseBtn">✕</button>
+    <h2 id="modalTitle">로그인</h2>
+    <p class="modal-sub" id="modalSub">닉네임과 비밀번호를 입력해주세요.</p>
+    <label for="authNickname">닉네임</label>
+    <input type="text" id="authNickname" autocomplete="username" maxlength="20">
+    <label for="authPassword">비밀번호</label>
+    <input type="password" id="authPassword" autocomplete="current-password" maxlength="50">
+    <div class="modal-error" id="authError"></div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="authSubmitBtn">로그인</button>
+    </div>
+    <div class="modal-switch" id="modalSwitch">
+      계정이 없으신가요? <a id="switchModeLink">회원가입</a>
+    </div>
+  </div>
+</div>
+
 <script>
 const CATEGORY_ICONS = {
   "정치":"🏛️","국제":"🌍","경제":"💰","사회":"🚨","문화":"🎭",
   "스포츠":"⚽","IT":"💻","과학":"🚀","교육":"🎓","비지니스":"📊","수학":"📐"
 };
 
+const LS_CURRENT_USER = "dn_currentUser";
+
 let allArticles = [];
 let activeCategories = new Set();
+let scrapOnly = false;
+let authMode = "login"; // or "register"
+let currentScraps = new Set(); // 로그인한 사용자의 스크랩 캐시 (서버와 동기화됨)
+
+/* ---------- 인증 / 스크랩 저장소 (서버 API + Upstash Redis) ---------- */
+
+async function apiCall(path, options){
+  const res = await fetch(path, options);
+  let data;
+  try { data = await res.json(); }
+  catch { data = { ok:false, error:"서버 응답을 처리할 수 없습니다." }; }
+  if (!res.ok && !data.error) data.error = "요청 처리 중 오류가 발생했습니다.";
+  return data;
+}
+
+function getCurrentUser(){
+  return localStorage.getItem(LS_CURRENT_USER) || null;
+}
+function setCurrentUser(nickname){
+  if (nickname) localStorage.setItem(LS_CURRENT_USER, nickname);
+  else localStorage.removeItem(LS_CURRENT_USER);
+}
+
+async function loadScrapsForCurrentUser(){
+  const user = getCurrentUser();
+  if (!user){ currentScraps = new Set(); return; }
+  try {
+    const data = await apiCall(`/api/scraps?nickname=${encodeURIComponent(user)}`);
+    currentScraps = new Set(data.ok ? (data.articleIds || []) : []);
+  } catch {
+    currentScraps = new Set();
+  }
+}
+
+async function persistScraps(){
+  const user = getCurrentUser();
+  if (!user) return;
+  await apiCall('/api/scraps', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nickname: user, articleIds: [...currentScraps] }),
+  });
+}
+
+async function toggleScrap(articleId){
+  const user = getCurrentUser();
+  if (!user) { openAuthModal("login"); return; }
+  if (currentScraps.has(articleId)) currentScraps.delete(articleId);
+  else currentScraps.add(articleId);
+  render(); // 즉시 화면 갱신 (낙관적 업데이트)
+  await persistScraps();
+}
+
+/* ---------- 모달 ---------- */
+
+function openAuthModal(mode){
+  authMode = mode;
+  document.getElementById('authError').textContent = '';
+  document.getElementById('authNickname').value = '';
+  document.getElementById('authPassword').value = '';
+  const isLogin = mode === 'login';
+  document.getElementById('modalTitle').textContent = isLogin ? '로그인' : '회원가입';
+  document.getElementById('modalSub').textContent = isLogin
+    ? '닉네임과 비밀번호를 입력해주세요.'
+    : '사용할 닉네임과 비밀번호를 정해주세요.';
+  document.getElementById('authSubmitBtn').textContent = isLogin ? '로그인' : '가입하기';
+  document.getElementById('modalSwitch').innerHTML = isLogin
+    ? '계정이 없으신가요? <a id="switchModeLink">회원가입</a>'
+    : '이미 계정이 있으신가요? <a id="switchModeLink">로그인</a>';
+  document.getElementById('switchModeLink').addEventListener('click', () => {
+    openAuthModal(isLogin ? 'register' : 'login');
+  });
+  document.getElementById('authModal').classList.add('open');
+  document.getElementById('authNickname').focus();
+}
+function closeAuthModal(){
+  document.getElementById('authModal').classList.remove('open');
+}
+
+async function handleAuthSubmit(){
+  const nickname = document.getElementById('authNickname').value.trim();
+  const password = document.getElementById('authPassword').value;
+  const errorEl = document.getElementById('authError');
+  const submitBtn = document.getElementById('authSubmitBtn');
+
+  if (!nickname || !password){
+    errorEl.textContent = '닉네임과 비밀번호를 모두 입력해주세요.';
+    return;
+  }
+
+  submitBtn.disabled = true;
+  errorEl.textContent = '';
+
+  try {
+    const endpoint = authMode === 'register' ? '/api/register' : '/api/login';
+    const data = await apiCall(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nickname, password }),
+    });
+
+    if (!data.ok){
+      errorEl.textContent = data.error || '처리 중 오류가 발생했습니다.';
+      submitBtn.disabled = false;
+      return;
+    }
+
+    setCurrentUser(data.nickname || nickname);
+    await loadScrapsForCurrentUser();
+    closeAuthModal();
+    renderAuthArea();
+    render();
+  } catch {
+    errorEl.textContent = '서버에 연결할 수 없습니다. 잠시 후 다시 시도해주세요.';
+  } finally {
+    submitBtn.disabled = false;
+  }
+}
+
+function logout(){
+  setCurrentUser(null);
+  currentScraps = new Set();
+  scrapOnly = false;
+  renderAuthArea();
+  render();
+}
+
+function renderAuthArea(){
+  const area = document.getElementById('authArea');
+  const user = getCurrentUser();
+  if (user){
+    area.innerHTML = `
+      <span class="user-name">👤 ${escapeHtml(user)}님</span>
+      <button class="btn" id="logoutBtn">로그아웃</button>
+    `;
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+  } else {
+    area.innerHTML = `<button class="btn btn-primary" id="loginBtn">로그인 / 회원가입</button>`;
+    document.getElementById('loginBtn').addEventListener('click', () => openAuthModal('login'));
+  }
+  // 로그아웃 상태면 스크랩 필터 비활성화
+  const scrapChip = document.getElementById('scrapChip');
+  if (!user){
+    scrapOnly = false;
+    scrapChip.classList.remove('active');
+    scrapChip.classList.add('disabled');
+  } else {
+    scrapChip.classList.remove('disabled');
+  }
+}
+
+/* ---------- 메인 렌더링 ---------- */
 
 async function init(){
   const res = await fetch('articles.json');
   allArticles = await res.json();
 
-  // 날짜 옵션 (최신순)
   const dates = [...new Set(allArticles.map(a => a.fileDate))].sort().reverse();
   const dateSelect = document.getElementById('dateSelect');
   for (const d of dates){
@@ -97,7 +321,6 @@ async function init(){
     dateSelect.appendChild(opt);
   }
 
-  // 카테고리 칩 (md 파일 등장 순서 기준)
   const cats = [...new Set(allArticles.map(a => a.category))];
   const orderRef = Object.keys(CATEGORY_ICONS);
   cats.sort((a,b) => orderRef.indexOf(a) - orderRef.indexOf(b));
@@ -121,12 +344,30 @@ async function init(){
   document.getElementById('searchInput').addEventListener('input', render);
   dateSelect.addEventListener('change', render);
 
+  document.getElementById('scrapChip').addEventListener('click', () => {
+    if (!getCurrentUser()){ openAuthModal('login'); return; }
+    scrapOnly = !scrapOnly;
+    document.getElementById('scrapChip').classList.toggle('active', scrapOnly);
+    render();
+  });
+
+  document.getElementById('authSubmitBtn').addEventListener('click', handleAuthSubmit);
+  document.getElementById('authPassword').addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleAuthSubmit();
+  });
+  document.getElementById('modalCloseBtn').addEventListener('click', closeAuthModal);
+  document.getElementById('authModal').addEventListener('click', e => {
+    if (e.target.id === 'authModal') closeAuthModal();
+  });
+
+  await loadScrapsForCurrentUser();
+  renderAuthArea();
   document.getElementById('totalCount').textContent = allArticles.length;
   render();
 }
 
 function escapeHtml(s){
-  return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
 
 function highlight(text, term){
@@ -139,10 +380,13 @@ function highlight(text, term){
 function render(){
   const term = document.getElementById('searchInput').value.trim();
   const date = document.getElementById('dateSelect').value;
+  const user = getCurrentUser();
+  const scraps = currentScraps;
 
   let filtered = allArticles.filter(a => {
     if (date && a.fileDate !== date) return false;
     if (activeCategories.size > 0 && !activeCategories.has(a.category)) return false;
+    if (scrapOnly && !scraps.has(a.id)) return false;
     if (term){
       const hay = (a.title + ' ' + a.body + ' ' + a.source).toLowerCase();
       if (!hay.includes(term.toLowerCase())) return false;
@@ -153,24 +397,35 @@ function render(){
   filtered.sort((a,b) => (b.fileDate.localeCompare(a.fileDate)) || (a.id - b.id));
 
   const list = document.getElementById('articleList');
-  document.getElementById('resultCount').textContent = `${filtered.length}건 표시 중`;
+  document.getElementById('resultCount').textContent =
+    `${filtered.length}건 표시 중` + (scrapOnly ? ' (스크랩만)' : '');
 
   if (filtered.length === 0){
-    list.innerHTML = '<div class="empty">조건에 맞는 뉴스가 없습니다.</div>';
+    list.innerHTML = `<div class="empty">${scrapOnly ? '스크랩한 뉴스가 없습니다.' : '조건에 맞는 뉴스가 없습니다.'}</div>`;
     return;
   }
 
-  list.innerHTML = filtered.map(a => `
+  list.innerHTML = filtered.map(a => {
+    const isScrapped = scraps.has(a.id);
+    return `
     <div class="article">
       <div class="article-head">
         <h3>${highlight(a.title, term)}</h3>
-        <span class="tag">${CATEGORY_ICONS[a.category]||''} ${a.category}</span>
+        <div class="head-right">
+          <span class="tag">${CATEGORY_ICONS[a.category]||''} ${a.category}</span>
+          <button class="scrap-btn ${isScrapped ? 'scrapped' : ''}" data-id="${a.id}" title="${user ? '스크랩' : '로그인 후 이용 가능'}">${isScrapped ? '★' : '☆'}</button>
+        </div>
       </div>
       <div class="article-sub">${a.fileDate} · ${escapeHtml(a.source)} ${a.date ? '· ' + escapeHtml(a.date) : ''}</div>
       <div class="article-body">${highlight(a.body, term)}</div>
       ${a.link ? `<div style="margin-top:8px;"><a href="${escapeHtml(a.link)}" target="_blank" rel="noopener">원문 보기 →</a></div>` : ''}
     </div>
-  `).join('');
+  `;
+  }).join('');
+
+  list.querySelectorAll('.scrap-btn').forEach(btn => {
+    btn.addEventListener('click', () => toggleScrap(Number(btn.dataset.id)));
+  });
 }
 
 init();
