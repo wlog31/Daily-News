@@ -2,6 +2,9 @@
   "name": "daily-news",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build:data": "node scripts/build_article_data.js"
+  },
   "dependencies": {
     "@upstash/redis": "^1.34.0"
   }

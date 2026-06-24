@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-06-24T01:02:37.766Z",
+  "totalCount": 379,
+  "dates": [
+    {
+      "date": "2026-06-24",
+      "count": 55,
+      "path": "/data/articles/dates/2026-06-24.json"
+    },
+    {
+      "date": "2026-06-23",
+      "count": 54,
+      "path": "/data/articles/dates/2026-06-23.json"
+    },
+    {
+      "date": "2026-06-19",
+      "count": 55,
+      "path": "/data/articles/dates/2026-06-19.json"
+    },
+    {
+      "date": "2026-06-14",
+      "count": 55,
+      "path": "/data/articles/dates/2026-06-14.json"
+    },
+    {
+      "date": "2026-06-10",
+      "count": 55,
+      "path": "/data/articles/dates/2026-06-10.json"
+    },
+    {
+      "date": "2026-06-09",
+      "count": 53,
+      "path": "/data/articles/dates/2026-06-09.json"
+    },
+    {
+      "date": "2026-06-08",
+      "count": 52,
+      "path": "/data/articles/dates/2026-06-08.json"
+    }
+  ],
+  "categories": [
+    {
+      "category": "경제",
+      "count": 32,
+      "path": "/data/articles/categories/경제.json"
+    },
+    {
+      "category": "과학",
+      "count": 34,
+      "path": "/data/articles/categories/과학.json"
+    },
+    {
+      "category": "교육",
+      "count": 35,
+      "path": "/data/articles/categories/교육.json"
+    },
+    {
+      "category": "국제",
+      "count": 35,
+      "path": "/data/articles/categories/국제.json"
+    },
+    {
+      "category": "문화",
+      "count": 35,
+      "path": "/data/articles/categories/문화.json"
+    },
+    {
+      "category": "비지니스",
+      "count": 35,
+      "path": "/data/articles/categories/비지니스.json"
+    },
+    {
+      "category": "사회",
+      "count": 35,
+      "path": "/data/articles/categories/사회.json"
+    },
+    {
+      "category": "수학",
+      "count": 35,
+      "path": "/data/articles/categories/수학.json"
+    },
+    {
+      "category": "스포츠",
+      "count": 35,
+      "path": "/data/articles/categories/스포츠.json"
+    },
+    {
+      "category": "정치",
+      "count": 33,
+      "path": "/data/articles/categories/정치.json"
+    },
+    {
+      "category": "IT",
+      "count": 35,
+      "path": "/data/articles/categories/IT.json"
+    }
+  ]
+}
