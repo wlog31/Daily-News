@@ -5,16 +5,19 @@ cd "$(dirname "$0")" || exit 1
 echo "Building article JSON files..."
 echo
 
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.nvm/current/bin:$HOME/.asdf/shims:$PATH"
+
 if ! command -v node >/dev/null 2>&1; then
   echo "Node.js was not found."
-  echo "Please install Node.js, then run this file again."
+  echo "Please install Node.js, or run this from Terminal with npm run build:data."
   echo
   printf "Press Enter to close..."
   read _
   exit 1
 fi
 
-node scripts/build_article_data.js
+NODE_BIN="$(command -v node)"
+"$NODE_BIN" scripts/build_article_data.js
 EXIT_CODE=$?
 
 echo

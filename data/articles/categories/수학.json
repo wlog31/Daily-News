@@ -1,6 +1,61 @@
 [
   {
-    "id": 272,
+    "id": 310,
+    "category": "수학",
+    "fileDate": "2026-06-25",
+    "title": "Linear Geometry and Algebra — 선분 관계 하나로 기하학을 재구성하다",
+    "source": "arXiv (math.LO / math.GR)",
+    "date": "2025-06-16 제출, 2026-04-07 최종 수정",
+    "link": "https://arxiv.org/abs/2506.14060",
+    "body": "우크라이나 수학자 Taras Banakh의 논문 \"Linear Geometry and Algebra\"는 점들의 집합과 그 위에 정의된 3항 관계(line relation, \"세 점이 한 직선 위에 있다\")만으로 기하학을 공리적으로 재구성하는 시도를 다룹니다. 이런 구조를 갖는 집합을 \"liner\"라 부르고, 직선의 개념을 점들 사이의 관계로만 환원해 유클리드 기하의 평행선 공리나 교차 공리 같은 직관적 공리에서 출발합니다. 핵심 주장은 적절한 공리들(가령 모든 두 점을 잇는 직선이 유일하게 존재한다는 결합 공리, 교차하는 두 직선이 공평면을 이룬다는 공리 등)을 만족하는 liner가 특정 대수 구조(벡터공간 또는 사영공간) 위에서 좌표화될 수 있다는 것입니다. 즉, 순수하게 관계론적·논리적인 출발점에서 시작해도 결국 익숙한 선형대수적 대상으로 환원된다는 점을 보입니다. 증명의 큰 줄기는 \"조화 결합(harmonic conjugate)\" 개념을 관계만으로 정의하고, 이를 이용해 점들에 좌표를 도입한 뒤 대수적 연산(덧셈, 곱셈)을 기하학적 작도로부터 유도하는 고전적 폰 슈타우트(von Staudt) 방식의 현대적 재정비에 해당합니다. 고등학교 기하 교육에서 다루는 \"공리에서 정리로\" 가는 과정의 가장 근본적인 버전을 다루고 있어, 유클리드 기하의 공리적 토대를 다시 짚어보고자 하는 교사에게 흥미로운 참고가 될 수 있습니다.",
+    "path": "CLAUDE/수학/2026-06-25-news.md"
+  },
+  {
+    "id": 311,
+    "category": "수학",
+    "fileDate": "2026-06-25",
+    "title": "창의적 문제해결(CPS) 모델이 수학 교사 양성과정 대학원생의 창의적 사고에 미치는 효과",
+    "source": "Frontiers in Psychology",
+    "date": "2026-01-21",
+    "link": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1734855/full",
+    "body": "튀르키예 온도쿠즈 마요스 대학교(Ondokuz Mayıs University)의 데니즈 외즈잔 카라(Deniz Özcan Kara)는 \"The effect of the creative problem-solving approach on creative thinking skills\"라는 논문에서, 2024-2025학년도에 \"수학교육에서의 창의성과 창의적 문제해결\" 과목을 수강한 대학원생 5명을 대상으로 CPS(Creative Problem-Solving) 모델 기반 수업이 창의적 사고에 미치는 영향을 질적 사례연구로 분석했습니다. 연구 설계는 학기 초에 토런스 창의적 사고검사(Torrance Tests of Creative Thinking, TTCT) 언어형 A형을 35분간 실시하고, 학기 동안 \"Ideas in a Box\"와 \"Trick or Treat\" 같은 창의적 문제 과제를 수행한 뒤, 학기 말에 TTCT 언어형 B형을 동일한 시간으로 재실시하는 사전-사후 비교 구조입니다. 평가는 유창성(fluency), 융통성(flexibility), 독창성(originality) 세 차원으로 나누어 내용분석(content analysis)했습니다. 결과적으로 사전검사에서 한 가지 해결 방식만 제시했던 학생들이 사후검사에서는 여러 해결 전략을 제시하는 경향이 뚜렷하게 관찰되었고, \"질문하기\" 과제에서도 사전에는 사물의 물리적 속성에 집중하던 응답이 사후에는 감정적·사회적·상징적 차원까지 확장되어 융통성과 독창성이 향상되었다고 보고합니다. 다만 연구진은 통계적 유의성 검증이 아니라 질적 변화 양상 기술에 초점을 맞췄다는 점을 분명히 밝히고 있어, 표본 크기가 5명에 불과한 한계를 안고 있습니다. 그럼에도 수학 교사 양성과정에서 정형화된 문제풀이를 넘어선 개방형 창의적 과제(Box 과제, Trick or Treat 같은 일상 맥락형 문제)를 도입하는 구체적 방법을 제시하는 점에서 현장 적용 가치가 있습니다.",
+    "path": "CLAUDE/수학/2026-06-25-news.md"
+  },
+  {
+    "id": 312,
+    "category": "수학",
+    "fileDate": "2026-06-25",
+    "title": "SymPy 1.14 — 가정(assumptions) 시스템의 논리적 오류 수정과 새로운 멱급수 함수",
+    "source": "SymPy GitHub Wiki (Release Notes)",
+    "date": "2025-04-27 출시 (최신 안정판으로 현재까지 유지)",
+    "link": "https://github.com/sympy/sympy/wiki/Release-Notes-for-1.14",
+    "body": "SymPy 1.14에서 가장 눈에 띄는 변화는 가정(assumptions) 시스템의 잘못된 추론을 수정한 부분입니다. 예를 들어 기존 버전에서는 `ask(Q.integer(x/y), Q.integer(x) & Q.integer(y))`가 잘못 `True`를 반환했습니다. 즉 \"x와 y가 정수이면 x/y도 정수\"라는 틀린 결론을 SymPy가 내렸던 것인데, 1.14부터는 이를 올바르게 `None`(판단 불가)으로 고쳤습니다. 마찬가지로 `ask(Q.integer(1/x), Q.integer(x))`도 더 이상 무조건 참으로 잘못 답하지 않습니다. 교육 현장에서 \"정수의 나눗셈이 항상 정수가 아니다\"라는 점을 학생에게 보일 때 SymPy로 반례를 자동 검증시키는 코드를 짤 경우, 구버전에서는 SymPy 자체가 틀린 답을 줄 위험이 있었으나 1.14부터는 신뢰할 수 있게 되었습니다. 또한 멱급수(rs_series) 모듈에 `rs_cosh_sinh`(쌍곡코사인·사인을 동시에 빠르게 계산), `rs_asinh`(역쌍곡사인의 테일러 급수) 함수가 새로 추가되어, 예를 들어 `rs_asinh(x, x, 10)`처럼 호출하면 $\\mathrm{arcsinh}(x)$의 10차 테일러 전개를 빠르게 얻을 수 있습니다. 코드 생성(codegen) 쪽에서는 C89 표준 함수 목록에 `log10`이 추가되어 상용로그를 C 코드로 직접 변환할 수 있게 되었고, NumPyPrinter의 다차원 배열 출력 버그도 수정되었습니다. 미분방정식이나 급수 전개를 다루는 수업·논문 작업에서 SymPy를 검증 도구로 쓰는 교사·연구자라면 가정 시스템 수정 사항을 특히 주의 깊게 볼 필요가 있습니다.",
+    "path": "CLAUDE/수학/2026-06-25-news.md"
+  },
+  {
+    "id": 313,
+    "category": "수학",
+    "fileDate": "2026-06-25",
+    "title": "IMO 2025 5번 문제 — \"이네코알러티 게임\"과 임계값 λ = √2/2의 발견",
+    "source": "A Point of View (Dragomir Grozev 수학 블로그)",
+    "date": "2025-08-15",
+    "link": "https://dgrozev.wordpress.com/2025/08/15/imo-2025-problem-5-an-inekoalaty-game/",
+    "body": "2025년 국제수학올림피아드(IMO) 5번 문제는 이탈리아의 마시밀리아노 포스키와 레오나르도 프란키가 출제한 \"이네코알러티 게임(inekoalaty game)\"으로, 알지스(Alice)와 바자(Bazza) 두 사람이 번갈아 비음의 실수 $x_n$을 선택하는 게임입니다. 홀수 번째 차례에는 앨리스가 $x_1+\\cdots+x_n \\le \\lambda n$을 만족하도록, 짝수 번째 차례에는 바자가 $x_1^2+\\cdots+x_n^2 \\le n$을 만족하도록 수를 고릅니다. 더 이상 조건을 만족하는 수를 고르지 못하는 사람이 패배합니다. 문제는 매개변수 $\\lambda$가 어떤 값일 때 누가 필승 전략을 갖는지 결정하라는 것입니다. 핵심 통찰은 두 턴(앨리스 한 번, 바자 한 번)이 지나면 게임이 처음과 같은 형태로 \"리셋\"되되 우변의 여유값만 바뀐다는 관찰입니다. 앨리스는 $x_1+x_2$를 $x_1^2+x_2^2$에 비해 최소화하려 하므로 $x_1, x_2$를 최대한 불균등하게(즉 한쪽을 0으로) 만들고 싶어하고, 반대로 바자는 둘을 균등하게 만들고 싶어합니다. 이 직관에서 임계값 $\\lambda_0 = \\sqrt{2}/2$가 도출됩니다: 앨리스가 $x_1=0$을 두면 바자가 QM-AM 부등식에 의해 $x_2=\\sqrt{2}$를 골라 $x_1+x_2=\\sqrt{2}$를 만들 수 있는데, 이것이 앨리스의 다음 한도 $3\\lambda - \\sqrt{2}$와 비교되면서 $\\lambda < \\sqrt{2}/2$일 때 앨리스의 가용 범위가 매 라운드 줄어들어 결국 패배함을 보일 수 있습니다. 반대로 $\\lambda > \\sqrt{2}/2$이면 앨리스가 연속해서 $x_1=x_3=\\cdots=0$을 선택하는 전략으로 QM-AM 부등식을 이용해 자신의 여유값이 계속 양수로 유지됨을 증명하고, 충분히 큰 $k$ 라운드 후에는 $x_{k+1}=(\\lambda-\\lambda_0)k$를 선택해 바자가 더 이상 조건을 만족할 수 없게 만들어 승리합니다. $\\lambda = \\lambda_0$인 경계에서는 양쪽 모두 패배하지 않는 전략을 가져 무승부가 됩니다. 이 풀이는 \"게임을 재귀적 부분게임으로 환원\"하는 전형적인 올림피아드 기법과 QM-AM(이차평균-산술평균) 부등식의 결합이 어떻게 정교한 임계값 분석으로 이어지는지 보여주는 좋은 예시로, 고등학교 수준의 부등식 단원 심화 수업에 활용할 수 있습니다.",
+    "path": "CLAUDE/수학/2026-06-25-news.md"
+  },
+  {
+    "id": 314,
+    "category": "수학",
+    "fileDate": "2026-06-25",
+    "title": "소수 거듭제곱에서의 제한된 약수함수 합성곱 — 라마누잔 합동식의 새로운 가족",
+    "source": "Journal of the Korean Mathematical Society (J. Korean Math. Soc.)",
+    "date": "2026-06-09 (Online first)",
+    "link": "https://jkms.kms.or.kr/journal/view.html?doi=10.4134/JKMS.j250462",
+    "body": "조계환(Gye Hwan Jo)과 김대열(Daeyeoul Kim)의 논문 \"Restricted convolution sums of divisor functions for prime powers\"는 서로소인 두 변수에 대해서만 더하는 \"제한된 약수함수 합성곱(restricted convolution sum)\" $R_{k,h}(n) = \\sum_{\\substack{ak+bh=n \\\\ \\gcd(a,b)=1}} \\sigma(a)\\sigma(b)$ 형태의 함수를 연구합니다. 연구 질문은 이 합이 $n=p^\\alpha$(소수의 거듭제곱)일 때 명시적으로 어떤 닫힌 형태를 갖는지, 그리고 그 $p$진수적(p-adic) 구조가 어떻게 나타나는지입니다. 방법론은 디리클레 역원(Dirichlet inversion)과 라마누잔이 제시한 9개의 고전적 \"라마누잔 쌍\" $(k,h)$에 대한 무제한 합성곱 합의 항등식을 결합하는 것입니다. 결과적으로 모든 $\\alpha \\ge 4$에 대해 $R_{k,h}(p^\\alpha)$를 $p$와 $\\alpha$의 홀짝성에 의해서만 결정되는 계수 다항식으로 표현하는 균일한 공식을 도출했습니다. 이를 응용해 $R_{k,h}(p^\\alpha)$의 정확한 $p$진 값매김(valuation)을 계산했는데, 흥미로운 점은 이 값이 지수 $\\alpha$에 대해 선형적으로 증가한다는 것입니다. 이는 제한 없는(unrestricted) 합성곱 합의 경우와 대조되는 양상으로, \"제한 조건(서로소 조건)이 합의 산술적 구조를 오히려 더 안정적이고 예측 가능하게 만든다\"는 점을 보여줍니다. 이 선형 안정성으로부터 저자들은 새로운 라마누잔 유형의 합동식 가족을 도출했고, 논문 말미에서는 이 엄격한 $p$진 구조가 제기하는 후속 공개 문제들을 제시합니다. 약수함수의 합성곱과 모듈러 형식 이론 사이의 고전적 연결고리(라마누잔의 1916년 작업)를 현대적 $p$진 분석 기법으로 확장한 사례로, 정수론 심화 세미나나 학부 연구 지도 소재로 적합합니다.",
+    "path": "CLAUDE/수학/2026-06-25-news.md"
+  },
+  {
+    "id": 305,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "Terence Tao, \"Products of Consecutive Integers with Unusual Anatomy\" — 수론의 오래된 미해결 문제 다수 해결",
@@ -11,7 +66,7 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 273,
+    "id": 306,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "Cognitively Guided Instruction(CGI) 초등 수학 교사 연수의 효과 — 클러스터 무작위 대조 실험",
@@ -22,7 +77,7 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 274,
+    "id": 307,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "GeoGebra 최신 버전 — Autocomplete 및 CAS 계산기 신규 명령어",
@@ -33,7 +88,7 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 275,
+    "id": 308,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "제66회 IMO(2025, 호주) — \"2025가 완전제곱수\"라는 조건을 활용한 조합 문제와 한국 학생의 풀이 전략",
@@ -44,7 +99,7 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 276,
+    "id": 309,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "JKMS(대한수학회지) 게재 논문 — 확산과 비선형 발병률을 가진 SEIRS 모델의 전역 어트랙터 존재성",
@@ -55,18 +110,18 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 267,
+    "id": 300,
     "category": "수학",
     "fileDate": "2026-06-23",
-    "title": "arXiv 수학 분야 신규 논문 동향 — 조합론·정수론 분야 주목할 결과",
-    "source": "arXiv.org",
-    "date": "2026-06-19",
-    "link": "https://arxiv.org/list/math/recent",
-    "body": "arXiv 수학 카테고리에는 2026년 6월 19일 기준 총 1,423건의 신규 논문이 제출된 것으로 집계됐다. 분야별로는 조합론(math.CO)이 182건으로 가장 활발했으며, 이 중에는 그래프의 '투란 밀도(Turán density)'와 '나무-절단 분해(tree-cut decomposition)'를 다룬 논문이 주목을 받았다. 투란 밀도는 특정 부분그래프를 포함하지 않는 그래프의 최대 엣지 비율을 다루는 극값 그래프 이론의 핵심 주제로, 최근 컴퓨터를 활용한 증명 보조 기법과 결합되며 새로운 결과들이 잇따르고 있다. 정수론(math.NT) 분야에서는 78건의 논문이 제출됐으며, '카프레카 동역학(Kaprekar dynamics)'을 다룬 연구가 흥미를 끌었다. 이는 숫자를 재배열해 반복적으로 빼는 과정에서 나타나는 패턴을 동역학계 관점에서 분석하는 주제다. 대수기하학(math.AG)에서도 코호몰로지 차원 관련 논문 등 77건이 새로 게재됐다. 이러한 활발한 제출 동향은 수학 각 분야에서 AI 보조 증명 도구의 활용이 늘면서 연구 생산성이 높아지고 있음을 보여준다.",
+    "title": "[수학 연구 논문] 「Four-digit Kaprekar dynamics in odd bases」— 카프레카 동역학의 새로운 엄밀한 구조 규명",
+    "source": "arXiv.org (math.NT)",
+    "date": "2026-06-18",
+    "link": "https://arxiv.org/abs/2606.20439",
+    "body": "Evan Chen, Ken Ono, Richard E. Schwartz, Dinesh S. Thakur 등 4인의 공저자가 발표한 논문 「Four-digit Kaprekar dynamics in odd bases」가 정수론 학계의 주목을 받고 있다. 카프레카 루틴(Kaprekar routine)은 네 자리 숫자를 내림차순·오름차순으로 배열한 뒤 빼는 과정을 반복하는 절차로, 십진법에서는 모든 비상수 네 자리 숫자가 6174로 수렴하는 것으로 유명하다. 이 논문은 3보다 큰 모든 홀수 진법(odd base)에서 네 자리 카프레카 사상(map)이 예상보다 훨�씬 단단한(rigid) 구조를 갖는다는 것을 증명했다. 저자들은 최대 세 번의 반복 이후 모든 비상수 궤도가 명시적인 삼각 영역에 진입하며, 이 사상이 사영적 두배화(projective doubling)와 켤레(conjugate) 관계에 있음을 보여 모든 비상수 종료 순환의 길이와 개수를 완전히 기술하는 명시적 공식을 제시했다. 특히 이 논문은 주요 결과에 대한 Lean 형식 검증(formalization)을 포함하고 있어, 형식적 증명 검증과 고전적 정수론 퍼즐이 결합된 사례로도 평가받는다.",
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 268,
+    "id": 301,
     "category": "수학",
     "fileDate": "2026-06-23",
     "title": "한국수학교육학회 '수학교육 논문집' 40권 1호 발행, 창의성 교육 연구 주목",
@@ -77,7 +132,7 @@
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 269,
+    "id": 302,
     "category": "수학",
     "fileDate": "2026-06-23",
     "title": "GeoGebra 6.0.918.0 업데이트, Calculator Suite도 개선",
@@ -88,7 +143,7 @@
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 270,
+    "id": 303,
     "category": "수학",
     "fileDate": "2026-06-23",
     "title": "제67회 국제수학올림피아드(IMO), 7월 중국 상하이서 개최",
@@ -99,18 +154,18 @@
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 271,
+    "id": 304,
     "category": "수학",
     "fileDate": "2026-06-23",
-    "title": "대한수학회, JKMS 투고 안내 및 '영 사이언티스트 어워드' 행사 진행",
-    "source": "대한수학회(KMS) 공식 홈페이지",
+    "title": "JKMS 게재 논문 「Rational curves in a quadric threefold via an SL(2,C)-representation」— 대한수학회 '영 사이언티스트 어워드'와 함께 주목",
+    "source": "Journal of the Korean Mathematical Society(JKMS)",
     "date": "2026-06-23",
-    "link": "https://jkms.kms.or.kr/",
-    "body": "대한수학회가 발행하는 영문 학술지 'Journal of the Korean Mathematical Society(JKMS)'가 논문 투고 안내를 지속적으로 게재하고 있으며, 투고 관련 문의는 학회 이메일(paper@kms.or.kr)을 통해 받고 있다. JKMS는 대수학, 해석학, 기하학, 정수론, 응용수학 등 폭넓은 분야의 연구를 다루는 국제 학술지로, 국내외 연구자들의 투고가 꾸준히 이어지고 있다. 한편 대한수학회는 현대차 정몽구 재단과 함께하는 '2026 영 사이언티스트 어워드' 행사를 진행하며, 젊은 수학 연구자들의 우수한 성과를 발굴하고 시상하는 자리를 마련했다. 이러한 행사는 신진 연구자들에게 연구 동기를 부여하고, 국내 수학 연구 생태계의 저변을 넓히는 데 기여하는 것으로 평가된다. 학회 측은 앞으로도 국제 학술지로서의 위상을 높이기 위해 심사 체계 고도화와 해외 연구자와의 교류 확대를 추진할 계획이라고 밝혔다.",
+    "link": "https://jkms.kms.or.kr/journal/view.html?uid=3019",
+    "body": "대한수학회가 발행하는 영문 학술지 'Journal of the Korean Mathematical Society(JKMS)'에 게재된 논문 「Rational curves in a quadric threefold via an SL(2,C)-representation」이 대수기하학 연구자들 사이에서 관심을 끌고 있다. 이 논문은 이차 3차원 다양체(quadric threefold) 위의 유리곡선(rational curve)을 SL(2,C) 표현을 이용해 분석하는 방법론을 제시하며, 모듈라이 공간 이론과 표현론이 교차하는 지점에서 새로운 계산 기법을 보여준다. JKMS는 대수학, 해석학, 기하학, 정수론, 응용수학 등 폭넓은 분야의 연구를 다루는 국제 학술지로, 게재 확정 논문에 대해 출판료를 면제하는 형태로 국내외 연구자들의 투고를 지속적으로 받고 있다(투고 문의: paper@kms.or.kr). 한편 대한수학회는 현대차 정몽구 재단과 함께하는 '2026 영 사이언티스트 어워드' 행사를 진행하며, 젊은 수학 연구자들의 우수한 성과를 발굴하고 시상하는 자리를 마련했다. 이러한 행사는 신진 연구자들에게 연구 동기를 부여하고, 국내 수학 연구 생태계의 저변을 넓히는 데 기여하는 것으로 평가된다.",
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 262,
+    "id": 295,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 연구 논문] arXiv 수학 카테고리, 6월 들어 대수기하·해석학 분야 활발한 신규 제출",
@@ -121,7 +176,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 263,
+    "id": 296,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 교육 연구] 초등수학 디지털교과서, '실재감'이 학습성과 예측에 핵심 변수",
@@ -132,7 +187,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 264,
+    "id": 297,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 소프트웨어·도구] GeoGebra 6.0.919 출시, 3D 시각화·AI 튜터링 기능 강화",
@@ -143,7 +198,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 265,
+    "id": 298,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 올림피아드] 제67회 국제수학올림피아드(IMO), 7월 중국 상하이 개최 예정",
@@ -154,7 +209,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 266,
+    "id": 299,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 저널·논문 투고] 대한수학회논문집 등 국내 수학 학술지, KCI 학술지 지원사업 신청 준비",
@@ -165,7 +220,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 257,
+    "id": 290,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "왕홍(Hong Wang), 필즈메달 유력 후보 — 케이시야 추측 해결로 수학계 주목",
@@ -176,7 +231,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 258,
+    "id": 291,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "AI 활용 수학 교육 연구 동향 — 개인화 학습과 교사 역할 재정립",
@@ -187,7 +242,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 259,
+    "id": 292,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "GeoGebra, AI 통합 기능 강화 — 동적 기하 + 자연어 질의 결합",
@@ -198,7 +253,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 260,
+    "id": 293,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "IMO 2026 상하이 개최 — 한국 대표팀 금메달 도전 (7월 10~21일)",
@@ -209,7 +264,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 261,
+    "id": 294,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "JKMS·대한수학회지 최신 호 발간 — 국내 수학 연구 성과 집결",
@@ -220,7 +275,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 252,
+    "id": 285,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "arXiv 주목 논문 — 「Gamma conjecture II via global Gamma-I」",
@@ -231,7 +286,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 253,
+    "id": 286,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "수학 교육 연구 — 중등·대학 수학 연계 특별호 CFP 마감 임박",
@@ -242,7 +297,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 254,
+    "id": 287,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "Desmos SAT 공식 내장 & 3D 색상 지도 기능 업데이트",
@@ -253,7 +308,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 255,
+    "id": 288,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "IMO 2026 — 7월 10~21일 중국 상하이 개최",
@@ -264,7 +319,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 256,
+    "id": 289,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "JKMS(대한수학회지) 최근 동향 & 투고 안내",
@@ -275,7 +330,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 247,
+    "id": 280,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "최신 수학 연구 논문 — arXiv 6월 주목 논문",
@@ -286,7 +341,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 248,
+    "id": 281,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "수학 교육 연구 — JRME·ZDM 2026년 동향",
@@ -297,7 +352,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 249,
+    "id": 282,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "수학 소프트웨어·도구 — Desmos 3D 컬러 기능 및 회귀 분석 업데이트",
@@ -308,7 +363,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 250,
+    "id": 283,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "수학 올림피아드 — 제67회 IMO 2026 중국 상하이 개최 예정",
@@ -319,7 +374,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 251,
+    "id": 284,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "수학 저널·투고 정보 — 대한수학회지·대한수학회논문집 현황",
@@ -330,7 +385,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 242,
+    "id": 277,
     "category": "수학",
     "fileDate": "2026-06-08",
     "title": "[최신 수학 연구 논문] arXiv, 베리 랜덤 웨이브 모델의 국소 범함수에 관한 중심극한정리 발표",
@@ -341,7 +396,7 @@
     "path": "CLAUDE/수학/2026-06-08-news.md"
   },
   {
-    "id": 243,
+    "id": 278,
     "category": "수학",
     "fileDate": "2026-06-08",
     "title": "[수학 교육 연구] KCI 고등학교 수학 선택과목 웹기반 적응형 학습 시스템 — 교사 사용성 평가",
@@ -352,7 +407,7 @@
     "path": "CLAUDE/수학/2026-06-08-news.md"
   },
   {
-    "id": 244,
+    "id": 279,
     "category": "수학",
     "fileDate": "2026-06-08",
     "title": "[수학 소프트웨어·도구] SymPy AI 강화 버전 & GeoGebra vs Desmos 2026 비교",
@@ -360,28 +415,6 @@
     "date": "2026",
     "link": "https://hireexamhelp.com/blogs/top-10-free-mathematics-software/",
     "body": "2026년 수학 소프트웨어 생태계는 AI와의 통합이 핵심 트렌드로 자리 잡고 있다. SymPy 최신 버전은 AI 강화 기호 단순화 루틴과 확장된 문서화를 도입해 Python 기반 수학 연구와 수업 활용이 더욱 수월해졌다. GeoGebra는 여전히 기하, 대수, 3D 그래프, 미적분을 통합한 가장 포괄적인 무료 수학 교구로 꼽히며, Desmos는 직관적인 웹 기반 그래핑으로 SAT 및 AP 시험 공식 계산기 지위를 유지하고 있다. GeoGebra와 Desmos는 상호 보완적인 도구로, 일상적 그래핑·수업 활동에는 Desmos를, 기하 작도·3D 탐구·고급 수학에는 GeoGebra를 병행하는 것이 권장된다. 교사들은 두 도구를 모두 숙지해 상황별로 최적의 도구를 선택하는 역량이 요구된다.",
-    "path": "CLAUDE/수학/2026-06-08-news.md"
-  },
-  {
-    "id": 245,
-    "category": "수학",
-    "fileDate": "2026-06-08",
-    "title": "[수학 올림피아드·경시대회] 제67회 IMO 2026, 중국 상하이에서 7월 개최",
-    "source": "IMO Official",
-    "date": "2026-06-08",
-    "link": "https://www.imo-official.org/year_info.aspx?year=2026",
-    "body": "제67회 국제수학올림피아드(IMO 2026)가 오는 7월 10일~21일 중국 상하이에서 개최된다. 한국수학올림피아드(KMO)는 이미 제66회 IMO 대표 선발 결과를 발표했으며, 대한민국은 지난 2025년 제66회 IMO에서 3위를 기록한 바 있어 이번 상하이 대회에서도 상위권 성적 도전이 기대된다. 100여 개국에서 각 6명씩 최대 600명의 영재 수학자들이 참가해 이틀에 걸쳐 총 6문제를 풀며 실력을 겨룬다. 수학 교사와 교육자들에게는 IMO 문제 자료를 통한 수업 아이디어 발굴의 계절이기도 하며, 국내 경시 준비 학생들에게는 IMO 기출 문제가 핵심 학습 자료가 된다. IMO 기출 문제 자료실(mo.math1.org)에서 과거 문제를 체계적으로 찾아볼 수 있다.",
-    "path": "CLAUDE/수학/2026-06-08-news.md"
-  },
-  {
-    "id": 246,
-    "category": "수학",
-    "fileDate": "2026-06-08",
-    "title": "[수학 저널·논문 투고] 대한수학회 JKMS & Young Researcher 프로그램 2026",
-    "source": "대한수학회 / JKMS",
-    "date": "2026-06",
-    "link": "https://jkms.kms.or.kr/",
-    "body": "대한수학회는 2026년 현대차 정몽구 재단과 협력하는 'Young Researcher' 프로그램 모집을 공지하고 있으며, 국내 수학 연구자들의 지원이 활발히 이루어지고 있다. JKMS(Journal of the Korean Mathematical Society)는 대한수학회의 대표 국제 학술지로, 채택된 논문에 대해 국내 저자는 페이지당 3만원, 해외 저자는 20달러의 지원금을 권장하지만 게재료를 면제하는 형태로 운영되어 경제적 부담 없는 투고가 가능하다. 최근 이슈에서는 대수기하, 해석학, 위상수학 관련 논문이 주를 이루고 있으며, 수학교육 분야는 자매지인 수학교육학회지(KSME)를 통해 투고할 수 있다. 수학교사로서 연구 논문을 발표하고자 하는 경우, KCI 등재지인 수학교육 논문집과 학교수학, East Asian Mathematical Journal 등이 주요 투고 채널이다. 2026년 하반기 대한수학회 학술대회는 10월 개최 예정으로, 연구 발표 및 네트워킹 기회를 제공한다.",
     "path": "CLAUDE/수학/2026-06-08-news.md"
   }
 ]

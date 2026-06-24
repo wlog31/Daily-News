@@ -86,11 +86,14 @@ function collectArticles(sourceDir) {
   const categories = fs
     .readdirSync(sourceDir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && !entry.name.startsWith("."))
-    .map((entry) => entry.name)
-    .sort((a, b) => a.localeCompare(b, "ko"));
+    .map((entry) => ({
+      fsName: entry.name,
+      name: entry.name.normalize("NFC"),
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, "ko"));
 
   for (const category of categories) {
-    const categoryDir = path.join(sourceDir, category);
+    const categoryDir = path.join(sourceDir, category.fsName);
     const files = fs
       .readdirSync(categoryDir)
       .filter((file) => file.endsWith("-news.md"))
@@ -104,10 +107,10 @@ function collectArticles(sourceDir) {
         articleId += 1;
         articles.push({
           id: articleId,
-          category,
+          category: category.name,
           fileDate,
           ...article,
-          path: `CLAUDE/${category}/${file}`,
+          path: `CLAUDE/${category.name}/${file}`,
         });
       }
     }
