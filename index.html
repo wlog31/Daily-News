@@ -370,7 +370,7 @@ function renderAuthArea(){
 /* ---------- 메인 렌더링 ---------- */
 
 async function init(){
-  const res = await fetch('articles.json');
+  const res = await fetch('/api/articles');
   allArticles = await res.json();
 
   const dates = [...new Set(allArticles.map(a => a.fileDate))].sort().reverse();
