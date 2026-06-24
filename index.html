@@ -117,12 +117,17 @@ const CATEGORY_ICONS = {
   "스포츠":"스포츠", "IT":"IT", "과학":"과학", "교육":"교육", "비지니스":"비즈", "수학":"수학"
 };
 const LS_CURRENT_USER = "dn_currentUser";
+const DATA_INDEX_PATH = "/data/articles/index.json";
+const DATA_ALL_PATH = "/data/articles/all.json";
 
 let allArticles = [];
+let articleIndex = null;
+let articleCache = new Map();
 let activeCategories = new Set();
 let scrapOnly = false;
 let authMode = "login";
 let currentScraps = new Set();
+let renderToken = 0;
 
 async function apiCall(path, options){
   const res = await fetch(path, options);
@@ -131,6 +136,56 @@ async function apiCall(path, options){
   catch { data = { ok:false, error:"서버 응답을 처리할 수 없습니다." }; }
   if (!res.ok && !data.error) data.error = "요청 처리 중 오류가 발생했습니다.";
   return data;
+}
+
+async function fetchArticleJson(path){
+  if (articleCache.has(path)) return articleCache.get(path);
+
+  const res = await fetch(path);
+  const data = await res.json();
+  if (!res.ok || !Array.isArray(data)) {
+    throw new Error(data.error || "기사 데이터를 불러오지 못했습니다.");
+  }
+
+  articleCache.set(path, data);
+  return data;
+}
+
+function getDateDataPath(date){
+  return articleIndex?.dates.find(item => item.date === date)?.path || `/data/articles/dates/${encodeURIComponent(date)}.json`;
+}
+
+function getCategoryDataPath(category){
+  return articleIndex?.categories.find(item => item.category === category)?.path || `/data/articles/categories/${encodeURIComponent(category)}.json`;
+}
+
+function uniqueArticlesById(groups){
+  const seen = new Set();
+  const merged = [];
+
+  groups.flat().forEach(article => {
+    if (seen.has(article.id)) return;
+    seen.add(article.id);
+    merged.push(article);
+  });
+
+  return merged;
+}
+
+async function loadArticlesForCurrentFilters(){
+  const date = document.getElementById("dateSelect").value;
+  const categories = [...activeCategories];
+
+  if (date) {
+    return fetchArticleJson(getDateDataPath(date));
+  }
+
+  if (categories.length > 0) {
+    const groups = await Promise.all(categories.map(category => fetchArticleJson(getCategoryDataPath(category))));
+    return uniqueArticlesById(groups);
+  }
+
+  return fetchArticleJson(DATA_ALL_PATH);
 }
 
 function getCurrentUser(){ return localStorage.getItem(LS_CURRENT_USER) || null; }
@@ -250,10 +305,12 @@ async function init(){
   bindStaticEvents();
 
   try {
-    const res = await fetch("/api/articles");
+    const res = await fetch(DATA_INDEX_PATH);
     const data = await res.json();
-    if (!res.ok || !Array.isArray(data)) throw new Error(data.error || "기사 목록을 불러오지 못했습니다.");
-    allArticles = data;
+    if (!res.ok || !data || !Array.isArray(data.dates) || !Array.isArray(data.categories)) {
+      throw new Error(data.error || "기사 인덱스를 불러오지 못했습니다.");
+    }
+    articleIndex = data;
   } catch (err) {
     document.getElementById("resultCount").textContent = "기사 목록 로딩 실패";
     document.getElementById("articleList").innerHTML = `<div class="empty">${escapeHtml(err.message || err)}</div>`;
@@ -262,7 +319,7 @@ async function init(){
 
   hydrateFilters();
   await loadScrapsForCurrentUser();
-  document.getElementById("totalCount").textContent = allArticles.length;
+  document.getElementById("totalCount").textContent = articleIndex.totalCount || 0;
   render();
 }
 
@@ -286,7 +343,7 @@ function bindStaticEvents(){
 }
 
 function hydrateFilters(){
-  const dates = [...new Set(allArticles.map(a => a.fileDate).filter(Boolean))].sort().reverse();
+  const dates = articleIndex.dates.map(item => item.date);
   const dateSelect = document.getElementById("dateSelect");
   dates.forEach(d => {
     const opt = document.createElement("option");
@@ -294,8 +351,9 @@ function hydrateFilters(){
     opt.textContent = d;
     dateSelect.appendChild(opt);
   });
+  if (dates[0]) dateSelect.value = dates[0];
 
-  const cats = [...new Set(allArticles.map(a => a.category))].sort((a,b) => a.localeCompare(b, "ko"));
+  const cats = articleIndex.categories.map(item => item.category);
   const chipRow = document.getElementById("categoryChips");
   cats.forEach(c => {
     const chip = document.createElement("button");
@@ -337,10 +395,25 @@ function isSpecificArticleLink(url){
   }
 }
 
-function render(){
+async function render(){
+  const token = ++renderToken;
   const term = document.getElementById("searchInput").value.trim();
   const date = document.getElementById("dateSelect").value;
   const user = getCurrentUser();
+  const list = document.getElementById("articleList");
+
+  document.getElementById("resultCount").textContent = "불러오는 중...";
+
+  try {
+    allArticles = await loadArticlesForCurrentFilters();
+  } catch (err) {
+    if (token !== renderToken) return;
+    document.getElementById("resultCount").textContent = "기사 데이터 로딩 실패";
+    list.innerHTML = `<div class="empty">${escapeHtml(err.message || err)}</div>`;
+    return;
+  }
+
+  if (token !== renderToken) return;
 
   const filtered = allArticles.filter(a => {
     if (date && a.fileDate !== date) return false;
@@ -354,7 +427,6 @@ function render(){
   }).sort((a,b) => (b.fileDate || "").localeCompare(a.fileDate || "") || a.id - b.id);
 
   document.getElementById("resultCount").textContent = `${filtered.length}건 표시 중${scrapOnly ? " (스크랩만)" : ""}`;
-  const list = document.getElementById("articleList");
 
   if (filtered.length === 0){
     list.innerHTML = `<div class="empty">${scrapOnly ? "스크랩한 뉴스가 없습니다." : "조건에 맞는 뉴스가 없습니다."}</div>`;
