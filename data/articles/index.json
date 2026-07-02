@@ -1,7 +1,12 @@
 {
-  "generatedAt": "2026-06-27T06:02:30.604Z",
-  "totalCount": 487,
+  "generatedAt": "2026-07-02T01:07:27.484Z",
+  "totalCount": 542,
   "dates": [
+    {
+      "date": "2026-07-02",
+      "count": 55,
+      "path": "/data/articles/dates/2026-07-02.json"
+    },
     {
       "date": "2026-06-27",
       "count": 55,
@@ -51,57 +56,57 @@
   "categories": [
     {
       "category": "경제",
-      "count": 42,
+      "count": 47,
       "path": "/data/articles/categories/경제.json"
     },
     {
       "category": "과학",
-      "count": 44,
+      "count": 49,
       "path": "/data/articles/categories/과학.json"
     },
     {
       "category": "교육",
-      "count": 45,
+      "count": 50,
       "path": "/data/articles/categories/교육.json"
     },
     {
       "category": "국제",
-      "count": 45,
+      "count": 50,
       "path": "/data/articles/categories/국제.json"
     },
     {
       "category": "문화",
-      "count": 45,
+      "count": 50,
       "path": "/data/articles/categories/문화.json"
     },
     {
       "category": "비지니스",
-      "count": 45,
+      "count": 50,
       "path": "/data/articles/categories/비지니스.json"
     },
     {
       "category": "사회",
-      "count": 45,
+      "count": 50,
       "path": "/data/articles/categories/사회.json"
     },
     {
       "category": "수학",
-      "count": 43,
+      "count": 48,
       "path": "/data/articles/categories/수학.json"
     },
     {
       "category": "스포츠",
-      "count": 45,
+      "count": 50,
       "path": "/data/articles/categories/스포츠.json"
     },
     {
       "category": "정치",
-      "count": 43,
+      "count": 48,
       "path": "/data/articles/categories/정치.json"
     },
     {
       "category": "IT",
-      "count": 45,
+      "count": 50,
       "path": "/data/articles/categories/IT.json"
     }
   ]
