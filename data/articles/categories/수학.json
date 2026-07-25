@@ -1,6 +1,61 @@
 [
   {
-    "id": 390,
+    "id": 435,
+    "category": "수학",
+    "fileDate": "2026-07-25",
+    "title": "에르되시-슈트라우스 추측, \"천장 연속분수(FCT)\"로 반례의 유한성을 시사하는 새 논문",
+    "source": "arXiv (math.NT), Andrés Ventas",
+    "date": "2026-05-06",
+    "link": "https://arxiv.org/abs/2605.04551",
+    "body": "에르되시-슈트라우스 추측은 \"2 이상의 모든 정수 n에 대해 4/n = 1/x + 1/y + 1/z를 만족하는 양의 정수 x, y, z가 존재한다\"는 미해결 문제다. 저자는 이 문제에 새로운 \"천장 연속분수(Ceiling Continued Fraction, FCT)\" 틀을 도입했다. 이는 유클리드 호제법을 바닥함수 대신 천장함수로 수행해 계수 ⌈c0, c1, c2, …⌉를 얻고, p_i = c_i·p_(i-1) − p_(i-2) 형태의 음의 점화식으로 근사분수를 생성하는 방식이다. 기존 연구(Mordell, Vaughan)는 n의 합동류(mod 840 등)에 의존해 해가 보장되는 경우를 분류했지만, 이 논문은 그 대신 p+i 꼴로 이동한 정수(이를 \"source\"라 명명)의 약수 구조를 직접 활용한다. 특히 4k+3 꼴의 소수에서는 FCT가 즉시 2항 이집트분수 해를 주는데, 저자는 \"이 성질이 성립한다면 4k+1 꼴의 소수 p도 관련된 외부수가 4k+3 약수를 가질 때마다 3항 해를 가져야 하지 않겠는가\"라는 발견적 질문을 던진다. 이를 뒷받침하기 위해 10^17과 10^52 부근의 소수 10억 개, 10^131 부근의 소수 1천만 개를 대상으로 계산 실험을 수행했고, 매우 얕은 탐색 깊이에서도 반례가 하나도 발견되지 않았다. 나아가 실패 확률(반례가 나올 기댓값)에 대해 E(F_p) ≪ N·exp(−(1/12)(ln p)^2) 형태의 초다항식적 감소 상한을 유도했으며, 이 급수의 수렴성과 보렐-칸텔리 보조정리를 결합해 \"반례가 존재한다면 그 개수는 유한할 것\"이라는 발견적 근거를 제시했다.",
+    "path": "CLAUDE/수학/2026-07-25-news.md"
+  },
+  {
+    "id": 436,
+    "category": "수학",
+    "fileDate": "2026-07-25",
+    "title": "고교학점제 최소 성취수준 보장지도를 위한 웹 기반 적응형 수학 학습 시스템 개발 연구",
+    "source": "학교수학 제28권 1호, pp.77-96 (대한수학교육학회), 오세준·황명남·박상균·남혁준",
+    "date": "2026",
+    "link": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003324895",
+    "body": "이 연구는 2022 개정 교육과정의 고교학점제 시행으로 대수, 미적분Ⅰ, 확률과 통계 등 수학 선택과목에서 \"최소 성취수준 보장지도\"가 사실상 의무화된 현장 상황을 배경으로 한다. 연구진은 학생의 문항 반응 결과에 따라 난이도와 보충 콘텐츠가 조정되는 학습-평가-피드백 연계형 웹 기반 적응형 시스템을 직접 설계·개발했다. 시스템은 단원별 성취기준 도달 여부를 자동 진단하고, 미도달 학생에게는 개별화된 보충 문항과 해설 피드백을 제공하는 구조로 구성되었다. 연구의 핵심은 이 시스템을 실제 고등학교 현장 교사들에게 사용하게 한 뒤 사용성 평가(usability evaluation)를 실시했다는 점이다. 즉 단순한 시스템 설계 소개에 그치지 않고, 교사 입장에서 수업 준비 부담 경감 효과, 개별 학생 맞춤 지도 지원 정도, 시스템 조작 편의성 등을 실제 사용 경험을 바탕으로 검증한 실증적 접근이다. 이는 최근 고교학점제 확대 속에서 다수 학교 현장이 겪고 있는 \"성취수준 미달 학생 지도 인력·시간 부족\" 문제에 대해 에듀테크 기반의 구체적 대안을 제시하고, 교사 사용성이라는 실행 가능성 지표로 그 실효성을 점검했다는 데 의의가 있다.",
+    "path": "CLAUDE/수학/2026-07-25-news.md"
+  },
+  {
+    "id": 437,
+    "category": "수학",
+    "fileDate": "2026-07-25",
+    "title": "GeoGebra Discovery, 실수 정량자소거 엔진 Tarski를 자동 정리증명에 통합",
+    "source": "GeoGebra Discovery 기술문서 (GitHub, kovzol/geogebra-discovery)",
+    "date": "2026-02 통합 반영",
+    "link": "https://github.com/kovzol/geogebra-discovery/blob/master/docs/technical.md",
+    "body": "GeoGebra의 실험판인 GeoGebra Discovery는 2026년 2월부로 실수 대수 영역의 정리증명 엔진인 Tarski 시스템을 자체 RealGeom 웹서비스에 통합했다. 기존에는 기하 명제의 참/거짓을 대수적으로 판정할 때 그뢰브너 기저(Gröbner basis) 기반의 Singular 웹서비스만 활용했는데, 이번 통합으로 Tarski·QEPCAD 계열의 실수 정량자소거(real quantifier elimination) 방식이 추가 백엔드로 결합되어 \"Discover\", \"LocusEquation\", \"Envelope\", \"Compare\" 등 자동 정리발견 명령이 다룰 수 있는 명제의 범위와 판정 정확도가 확장되었다. 구체적 활용 예시로는, 삼각형을 작도하고 그 내접원(Incircle, Discovery 전용 신규 도구)을 그린 뒤 Discover 명령을 실행하면, \"내접원의 중심이 세 내각의 이등분선의 교점과 일치한다\"는 명제를 좌표 대수식으로 자동 변환하고 Tarski 엔진이 실수 범위에서 엄밀하게 참/거짓을 판정해 준다. 기존 Gröbner 기반 증명이 처리하기 어려웠던 부등식·범위 조건이 섞인 기하 명제(예: \"점 P가 삼각형 내부에 있을 때만 성립하는 성질\")도 이제 정량자소거 방식으로 다룰 수 있게 되어, 학생이 직접 세운 기하적 추측을 교사가 수업 중 즉석에서 엄밀 검증하는 활동을 설계하기 용이해졌다.",
+    "path": "CLAUDE/수학/2026-07-25-news.md"
+  },
+  {
+    "id": 438,
+    "category": "수학",
+    "fileDate": "2026-07-25",
+    "title": "IMO 2026 1번 문제 완전풀이 — gcd·lcm 치환에서 불변으로 남는 것",
+    "source": "Evan Chen, IMO 2026 Solution Notes",
+    "date": "2026-07-23 (대회는 2026-07-15~16 상하이 개최)",
+    "link": "https://web.evanchen.cc/exams/IMO-2026-notes.pdf",
+    "body": "문제(1번, Giancarlo Kerg 제안): 칠판에 1보다 큰 정수 2026개가 적혀 있다. 한 번의 시행에서 서로 다른 위치의 두 정수 m>1, n>1을 골라 이 둘을 gcd(m,n)과 lcm(m,n)/gcd(m,n)으로 바꾸는 것을 더 이상 시행이 불가능할 때까지 반복한다. (a) 시행 순서와 무관하게 유한 번 후 칠판에는 1보다 큰 수가 정확히 하나(M)만 남음을 증명하라. (b) 그 값 M이 시행 순서에 의존하지 않음을 증명하라.\n(a)의 풀이 아이디어는 간단하다. 한 번의 시행은 두 경우로만 갈린다 — gcd(m,n)=1이면 칠판 위 1의 개수가 영구히 하나 늘어나고, gcd(m,n)>1이면 칠판에 적힌 모든 수의 곱이 순감소한다. 두 경우 모두 단조량이 존재하므로 시행은 유한 번 안에 멈춘다.\n(b)의 핵심은 다음 보조정리다. 소수 p를 하나 고정하고 두 수의 p진 지수를 각각 x=ν_p(m), y=ν_p(n) (x≤y)라 하면, 치환 후 ν_p(gcd(m,n))=x, ν_p(lcm(m,n)/gcd(m,n))=y−x가 되고, gcd(x, y−x)=gcd(x,y)이므로 \"칠판에 적힌 2026개 수의 p진 지수들의 최대공약수\"는 어떤 시행을 거쳐도 값이 변하지 않는 불변량이다. Evan Chen은 이를 \"사실상 2026개의 수에 대해 동시에 수행되는 유클리드 호제법\"이라 설명한다. 이 불변량 논증을 모든 소수 p에 대해 적용하면 ν_p(M) = gcd(ν_p(a_1), …, ν_p(a_2026))로 결정되어, M이 초기 배열 a_1,…,a_2026에만 의존하고 시행 순서와는 무관함이 증명된다. gcd·lcm의 성질과 p진 밸류에이션만으로 우아하게 마무리되는 전형적인 정수론 불변량 문제로, 수업에서 \"치환 규칙이 있을 때 불변량을 찾는\" 사고 훈련 예시로 활용하기 좋다.",
+    "path": "CLAUDE/수학/2026-07-25-news.md"
+  },
+  {
+    "id": 439,
+    "category": "수학",
+    "fileDate": "2026-07-25",
+    "title": "대한수학회지(JKMS)에 게재된 탄성파 역문제 논문 — 경계 관측만으로 계량을 복원할 수 있는가",
+    "source": "J. Korean Math. Soc. 2026;63(1):237-248, Xiaoming Tan (충칭공상대학)",
+    "date": "2026-01-01 (온라인 공개 2025-12-04)",
+    "link": "https://jkms.kms.or.kr/journal/view.html?volume=63&number=1&spage=237",
+    "body": "논문 제목은 \"Boundary determination of the Riemannian metric by the elastic Dirichlet-to-Neumann map\"(탄성 디리클레-노이만 사상에 의한 리만 계량의 경계 결정)이다. 연구 질문은 다음과 같다: 매끄러운 경계를 가진 콤팩트 연결 리만 다양체에서, 물체 표면에 힘을 가했을 때의 변형(디리클레 데이터)과 그에 따른 응력(노이만 데이터)의 대응관계, 즉 탄성 디리클레-노이만(DtN) 사상만을 관측해서 다양체의 리만 계량(거리 구조)을 경계 위에서 얼마나 복원할 수 있는가 하는 역문제(inverse problem)다. 방법론적으로는 탄성 DtN 사상을 유사미분작용소(pseudodifferential operator)로 보고 그 완전 심볼(full symbol)을 직접 계산하는 방식을 택했다. 핵심 정리는 이 완전 심볼 계산을 통해 탄성 DtN 사상이 경계 위에서 리만 계량의 모든 차수의 편미분(partial derivatives of all orders)을 유일하게 결정한다는 것이다. 즉 표면에서의 힘-변형 응답만 정밀하게 측정할 수 있다면, 물체 내부를 직접 들여다보지 않고도 경계 근방의 기하학적 구조를 임의의 정밀도로 재구성할 수 있음을 이론적으로 보장한다. 이러한 결과는 지진파를 이용한 지하구조 역산, 초음파를 이용한 재료 내부의 비파괴 검사처럼 \"표면 관측으로 내부 구조를 추정\"하는 응용 역문제들의 이론적 토대가 된다.",
+    "path": "CLAUDE/수학/2026-07-25-news.md"
+  },
+  {
+    "id": 430,
     "category": "수학",
     "fileDate": "2026-07-02",
     "title": "[최신 연구 논문] Boris Adamczewski & Colin Faverjon, \"A Liouville-Type Inequality for Values of Mahler M-Functions\" — 마흘러 Mq-함수 값의 초월성 문제 해결",
@@ -11,7 +66,7 @@
     "path": "CLAUDE/수학/2026-07-02-news.md"
   },
   {
-    "id": 391,
+    "id": 431,
     "category": "수학",
     "fileDate": "2026-07-02",
     "title": "[수학 교육 연구] 차소정·김진호, \"학습자 중심 수학 수업이 학생의 추론 능력과 학업성취도에 미치는 영향: 초등학교 4학년 분수 및 다각형 단원을 중심으로\"",
@@ -22,7 +77,7 @@
     "path": "CLAUDE/수학/2026-07-02-news.md"
   },
   {
-    "id": 392,
+    "id": 432,
     "category": "수학",
     "fileDate": "2026-07-02",
     "title": "[수학 소프트웨어·도구] GeoGebra Discovery — Tarski 엔진 기반 자동 정리 증명 명령 Discover·ShowProof의 실제 사용법",
@@ -33,7 +88,7 @@
     "path": "CLAUDE/수학/2026-07-02-news.md"
   },
   {
-    "id": 393,
+    "id": 433,
     "category": "수학",
     "fileDate": "2026-07-02",
     "title": "[올림피아드] 제66회 IMO 2025 1번 문제 \"Sunny Lines\" — 격자점 피복 문제와 귀납적 축소를 이용한 풀이",
@@ -44,7 +99,7 @@
     "path": "CLAUDE/수학/2026-07-02-news.md"
   },
   {
-    "id": 394,
+    "id": 434,
     "category": "수학",
     "fileDate": "2026-07-02",
     "title": "[수학 저널] Gyu Whan Chang, \"Every abelian group is the class group of a ring of Krull type\" — JKMS 게재, Claborn 정리의 일반화",
@@ -55,7 +110,7 @@
     "path": "CLAUDE/수학/2026-07-02-news.md"
   },
   {
-    "id": 385,
+    "id": 425,
     "category": "수학",
     "fileDate": "2026-06-27",
     "title": "[최신 연구 논문] Mostovoy, \"Finite Subset Spaces of Spheres\" — 구의 유한 부분집합 공간의 유리 호몰로지 완전 계산",
@@ -66,7 +121,7 @@
     "path": "CLAUDE/수학/2026-06-27-news.md"
   },
   {
-    "id": 386,
+    "id": 426,
     "category": "수학",
     "fileDate": "2026-06-27",
     "title": "[수학 교육 연구] 오세준 외, \"고등학교 수학 선택과목 최소 성취수준 보장지도를 위한 웹 기반 적응형 시스템 설계: 현장 교사 사용성 평가를 중심으로\"",
@@ -77,7 +132,7 @@
     "path": "CLAUDE/수학/2026-06-27-news.md"
   },
   {
-    "id": 387,
+    "id": 427,
     "category": "수학",
     "fileDate": "2026-06-27",
     "title": "[수학 소프트웨어] GeoGebra Classic 6 — 명령어 자동완성(Autocomplete) 기능의 실제 활용법",
@@ -88,7 +143,7 @@
     "path": "CLAUDE/수학/2026-06-27-news.md"
   },
   {
-    "id": 388,
+    "id": 428,
     "category": "수학",
     "fileDate": "2026-06-27",
     "title": "[올림피아드] IMO 2025 Problem 6 — 2025×2025 격자 타일링 문제와 딜워스 정리를 이용한 풀이",
@@ -99,7 +154,7 @@
     "path": "CLAUDE/수학/2026-06-27-news.md"
   },
   {
-    "id": 389,
+    "id": 429,
     "category": "수학",
     "fileDate": "2026-06-27",
     "title": "[수학 저널] Yoonhu Kim, \"Undecidability of tiling the plane with a set of 5 polyominoes\" — JKMS 63권 2호 게재",
@@ -110,7 +165,7 @@
     "path": "CLAUDE/수학/2026-06-27-news.md"
   },
   {
-    "id": 380,
+    "id": 420,
     "category": "수학",
     "fileDate": "2026-06-25",
     "title": "Linear Geometry and Algebra — 선분 관계 하나로 기하학을 재구성하다",
@@ -121,7 +176,7 @@
     "path": "CLAUDE/수학/2026-06-25-news.md"
   },
   {
-    "id": 381,
+    "id": 421,
     "category": "수학",
     "fileDate": "2026-06-25",
     "title": "창의적 문제해결(CPS) 모델이 수학 교사 양성과정 대학원생의 창의적 사고에 미치는 효과",
@@ -132,7 +187,7 @@
     "path": "CLAUDE/수학/2026-06-25-news.md"
   },
   {
-    "id": 382,
+    "id": 422,
     "category": "수학",
     "fileDate": "2026-06-25",
     "title": "SymPy 1.14 — 가정(assumptions) 시스템의 논리적 오류 수정과 새로운 멱급수 함수",
@@ -143,7 +198,7 @@
     "path": "CLAUDE/수학/2026-06-25-news.md"
   },
   {
-    "id": 383,
+    "id": 423,
     "category": "수학",
     "fileDate": "2026-06-25",
     "title": "IMO 2025 5번 문제 — \"이네코알러티 게임\"과 임계값 λ = √2/2의 발견",
@@ -154,7 +209,7 @@
     "path": "CLAUDE/수학/2026-06-25-news.md"
   },
   {
-    "id": 384,
+    "id": 424,
     "category": "수학",
     "fileDate": "2026-06-25",
     "title": "소수 거듭제곱에서의 제한된 약수함수 합성곱 — 라마누잔 합동식의 새로운 가족",
@@ -165,7 +220,7 @@
     "path": "CLAUDE/수학/2026-06-25-news.md"
   },
   {
-    "id": 375,
+    "id": 415,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "Terence Tao, \"Products of Consecutive Integers with Unusual Anatomy\" — 수론의 오래된 미해결 문제 다수 해결",
@@ -176,7 +231,7 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 376,
+    "id": 416,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "Cognitively Guided Instruction(CGI) 초등 수학 교사 연수의 효과 — 클러스터 무작위 대조 실험",
@@ -187,7 +242,7 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 377,
+    "id": 417,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "GeoGebra 최신 버전 — Autocomplete 및 CAS 계산기 신규 명령어",
@@ -198,7 +253,7 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 378,
+    "id": 418,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "제66회 IMO(2025, 호주) — \"2025가 완전제곱수\"라는 조건을 활용한 조합 문제와 한국 학생의 풀이 전략",
@@ -209,7 +264,7 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 379,
+    "id": 419,
     "category": "수학",
     "fileDate": "2026-06-24",
     "title": "JKMS(대한수학회지) 게재 논문 — 확산과 비선형 발병률을 가진 SEIRS 모델의 전역 어트랙터 존재성",
@@ -220,7 +275,7 @@
     "path": "CLAUDE/수학/2026-06-24-news.md"
   },
   {
-    "id": 370,
+    "id": 410,
     "category": "수학",
     "fileDate": "2026-06-23",
     "title": "[수학 연구 논문] 「Four-digit Kaprekar dynamics in odd bases」— 카프레카 동역학의 새로운 엄밀한 구조 규명",
@@ -231,7 +286,7 @@
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 371,
+    "id": 411,
     "category": "수학",
     "fileDate": "2026-06-23",
     "title": "한국수학교육학회 '수학교육 논문집' 40권 1호 발행, 창의성 교육 연구 주목",
@@ -242,7 +297,7 @@
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 372,
+    "id": 412,
     "category": "수학",
     "fileDate": "2026-06-23",
     "title": "GeoGebra 6.0.918.0 업데이트, Calculator Suite도 개선",
@@ -253,7 +308,7 @@
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 373,
+    "id": 413,
     "category": "수학",
     "fileDate": "2026-06-23",
     "title": "제67회 국제수학올림피아드(IMO), 7월 중국 상하이서 개최",
@@ -264,7 +319,7 @@
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 374,
+    "id": 414,
     "category": "수학",
     "fileDate": "2026-06-23",
     "title": "JKMS 게재 논문 「Rational curves in a quadric threefold via an SL(2,C)-representation」— 대한수학회 '영 사이언티스트 어워드'와 함께 주목",
@@ -275,7 +330,7 @@
     "path": "CLAUDE/수학/2026-06-23-news.md"
   },
   {
-    "id": 365,
+    "id": 405,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 연구 논문] arXiv 수학 카테고리, 6월 들어 대수기하·해석학 분야 활발한 신규 제출",
@@ -286,7 +341,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 366,
+    "id": 406,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 교육 연구] 초등수학 디지털교과서, '실재감'이 학습성과 예측에 핵심 변수",
@@ -297,7 +352,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 367,
+    "id": 407,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 소프트웨어·도구] GeoGebra 6.0.919 출시, 3D 시각화·AI 튜터링 기능 강화",
@@ -308,7 +363,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 368,
+    "id": 408,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 올림피아드] 제67회 국제수학올림피아드(IMO), 7월 중국 상하이 개최 예정",
@@ -319,7 +374,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 369,
+    "id": 409,
     "category": "수학",
     "fileDate": "2026-06-19",
     "title": "[수학 저널·논문 투고] 대한수학회논문집 등 국내 수학 학술지, KCI 학술지 지원사업 신청 준비",
@@ -330,7 +385,7 @@
     "path": "CLAUDE/수학/2026-06-19-news.md"
   },
   {
-    "id": 360,
+    "id": 400,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "왕홍(Hong Wang), 필즈메달 유력 후보 — 케이시야 추측 해결로 수학계 주목",
@@ -341,7 +396,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 361,
+    "id": 401,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "AI 활용 수학 교육 연구 동향 — 개인화 학습과 교사 역할 재정립",
@@ -352,7 +407,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 362,
+    "id": 402,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "GeoGebra, AI 통합 기능 강화 — 동적 기하 + 자연어 질의 결합",
@@ -363,7 +418,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 363,
+    "id": 403,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "IMO 2026 상하이 개최 — 한국 대표팀 금메달 도전 (7월 10~21일)",
@@ -374,7 +429,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 364,
+    "id": 404,
     "category": "수학",
     "fileDate": "2026-06-14",
     "title": "JKMS·대한수학회지 최신 호 발간 — 국내 수학 연구 성과 집결",
@@ -385,7 +440,7 @@
     "path": "CLAUDE/수학/2026-06-14-news.md"
   },
   {
-    "id": 355,
+    "id": 395,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "arXiv 주목 논문 — 「Gamma conjecture II via global Gamma-I」",
@@ -396,7 +451,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 356,
+    "id": 396,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "수학 교육 연구 — 중등·대학 수학 연계 특별호 CFP 마감 임박",
@@ -407,7 +462,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 357,
+    "id": 397,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "Desmos SAT 공식 내장 & 3D 색상 지도 기능 업데이트",
@@ -418,7 +473,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 358,
+    "id": 398,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "IMO 2026 — 7월 10~21일 중국 상하이 개최",
@@ -429,7 +484,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 359,
+    "id": 399,
     "category": "수학",
     "fileDate": "2026-06-10",
     "title": "JKMS(대한수학회지) 최근 동향 & 투고 안내",
@@ -440,7 +495,7 @@
     "path": "CLAUDE/수학/2026-06-10-news.md"
   },
   {
-    "id": 350,
+    "id": 390,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "최신 수학 연구 논문 — arXiv 6월 주목 논문",
@@ -451,7 +506,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 351,
+    "id": 391,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "수학 교육 연구 — JRME·ZDM 2026년 동향",
@@ -462,7 +517,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 352,
+    "id": 392,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "수학 소프트웨어·도구 — Desmos 3D 컬러 기능 및 회귀 분석 업데이트",
@@ -473,7 +528,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 353,
+    "id": 393,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "수학 올림피아드 — 제67회 IMO 2026 중국 상하이 개최 예정",
@@ -484,7 +539,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 354,
+    "id": 394,
     "category": "수학",
     "fileDate": "2026-06-09",
     "title": "수학 저널·투고 정보 — 대한수학회지·대한수학회논문집 현황",
@@ -495,7 +550,7 @@
     "path": "CLAUDE/수학/2026-06-09-news.md"
   },
   {
-    "id": 347,
+    "id": 387,
     "category": "수학",
     "fileDate": "2026-06-08",
     "title": "[최신 수학 연구 논문] arXiv, 베리 랜덤 웨이브 모델의 국소 범함수에 관한 중심극한정리 발표",
@@ -506,7 +561,7 @@
     "path": "CLAUDE/수학/2026-06-08-news.md"
   },
   {
-    "id": 348,
+    "id": 388,
     "category": "수학",
     "fileDate": "2026-06-08",
     "title": "[수학 교육 연구] KCI 고등학교 수학 선택과목 웹기반 적응형 학습 시스템 — 교사 사용성 평가",
@@ -517,7 +572,7 @@
     "path": "CLAUDE/수학/2026-06-08-news.md"
   },
   {
-    "id": 349,
+    "id": 389,
     "category": "수학",
     "fileDate": "2026-06-08",
     "title": "[수학 소프트웨어·도구] SymPy AI 강화 버전 & GeoGebra vs Desmos 2026 비교",

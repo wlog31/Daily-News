@@ -1,7 +1,12 @@
 {
-  "generatedAt": "2026-07-02T01:07:27.484Z",
-  "totalCount": 542,
+  "generatedAt": "2026-07-25T04:44:47.863Z",
+  "totalCount": 607,
   "dates": [
+    {
+      "date": "2026-07-25",
+      "count": 65,
+      "path": "/data/articles/dates/2026-07-25.json"
+    },
     {
       "date": "2026-07-02",
       "count": 55,
@@ -56,57 +61,67 @@
   "categories": [
     {
       "category": "경제",
-      "count": 47,
+      "count": 52,
       "path": "/data/articles/categories/경제.json"
     },
     {
+      "category": "고등수학",
+      "count": 5,
+      "path": "/data/articles/categories/고등수학.json"
+    },
+    {
       "category": "과학",
-      "count": 49,
+      "count": 54,
       "path": "/data/articles/categories/과학.json"
     },
     {
       "category": "교육",
-      "count": 50,
+      "count": 55,
       "path": "/data/articles/categories/교육.json"
     },
     {
       "category": "국제",
-      "count": 50,
+      "count": 55,
       "path": "/data/articles/categories/국제.json"
     },
     {
       "category": "문화",
-      "count": 50,
+      "count": 55,
       "path": "/data/articles/categories/문화.json"
     },
     {
       "category": "비지니스",
-      "count": 50,
+      "count": 55,
       "path": "/data/articles/categories/비지니스.json"
     },
     {
       "category": "사회",
-      "count": 50,
+      "count": 55,
       "path": "/data/articles/categories/사회.json"
     },
     {
       "category": "수학",
-      "count": 48,
+      "count": 53,
       "path": "/data/articles/categories/수학.json"
     },
     {
       "category": "스포츠",
-      "count": 50,
+      "count": 55,
       "path": "/data/articles/categories/스포츠.json"
     },
     {
+      "category": "입시",
+      "count": 5,
+      "path": "/data/articles/categories/입시.json"
+    },
+    {
       "category": "정치",
-      "count": 48,
+      "count": 53,
       "path": "/data/articles/categories/정치.json"
     },
     {
       "category": "IT",
-      "count": 50,
+      "count": 55,
       "path": "/data/articles/categories/IT.json"
     }
   ]
