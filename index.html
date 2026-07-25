@@ -13,6 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <style>
   :root{
     --bg:#F7F4EC; --card:#FFFFFF; --card-soft:#FBF8F1; --border:#E6DFD0;
@@ -55,6 +58,7 @@
   .scrap-btn.scrapped{color:var(--star)}
   .article-sub{font-size:12.5px;color:var(--muted);margin:8px 0 14px;border-bottom:1px solid var(--border-soft);padding-bottom:12px}
   .article-body{font:15.5px/1.85 var(--serif);color:var(--text-soft);white-space:pre-wrap}
+  .article-body .katex{font-size:1.05em}
   .article-link{margin-top:14px}
   a{color:var(--accent-deep);text-decoration:none;font-size:13px;font-weight:700}
   a:hover{text-decoration:underline}
@@ -455,6 +459,19 @@ async function render(){
 
   list.querySelectorAll(".scrap-btn").forEach(btn => {
     btn.addEventListener("click", () => toggleScrap(Number(btn.dataset.id)));
+  });
+
+  renderMath(list);
+}
+
+function renderMath(container){
+  if (typeof window.renderMathInElement !== "function") return;
+  window.renderMathInElement(container, {
+    delimiters: [
+      { left: "$$", right: "$$", display: true },
+      { left: "$", right: "$", display: false },
+    ],
+    throwOnError: false,
   });
 }
 
