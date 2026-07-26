@@ -1,6 +1,61 @@
 [
   {
-    "id": 603,
+    "id": 668,
+    "category": "IT",
+    "fileDate": "2026-07-26",
+    "title": "삼성, 갤럭시 언팩 2026 개최…Z 폴드8 울트라·폴드8·플립8 공개",
+    "source": "Samsung Global Newsroom",
+    "date": "2026-07-22",
+    "link": "https://news.samsung.com/global/galaxy-unpacked-july-2026-a-first-look-at-galaxy-z-fold8-ultra-galaxy-z-fold8-and-galaxy-z-flip8",
+    "body": "삼성전자가 7월 22일 영국 런던에서 갤럭시 언팩 2026 행사를 열고 갤럭시 Z 폴드8 울트라, Z 폴드8, Z 플립8 등 신규 폴더블 라인업을 공개했다. 특히 갤럭시 Z 폴드8 울트라는 펼쳤을 때 두께 4.1mm, 무게 215g으로 역대 갤럭시 Z 폴드 시리즈 중 가장 얇은 모델로 소개됐으며, 8인치 대화면을 탑재해 AI 기반 멀티태스킹 생산성을 극대화한 것이 특징이다. 갤럭시 Z 폴드8은 콘텐츠 유형에 맞춰 최적화된 화면 비율과 함께, 갤럭시 AI를 활용해 영상 속 인물을 자동으로 추적하고 재구성하는 '마이 팬캠' 기능, 고도화된 에이전틱 AI 기능을 새롭게 선보였다. 컴팩트한 갤럭시 Z 플립8은 빠른 정보 확인이 가능한 '나우 브리프'가 적용된 향상된 플렉스윈도우와 함께 캠코더 그립, 수평 고정 슈퍼 스테디, 듀얼 레코딩 등 새로운 카메라 기능을 탑재했다. 삼성은 이번 행사에서 구글, 젠틀몬스터, 워비파커 등과 함께 개발 중인 AI 스마트글라스도 함께 미리 선보이며 폼팩터 다각화 전략을 이어가고 있음을 보여줬다.",
+    "path": "CLAUDE/IT/2026-07-26-news.md"
+  },
+  {
+    "id": 669,
+    "category": "IT",
+    "fileDate": "2026-07-26",
+    "title": "AMD-Cerebras, AI 추론 성능 5배 높이는 파트너십 발표",
+    "source": "Axios",
+    "date": "2026-07-23",
+    "link": "https://www.axios.com/2026/07/23/amd-cerebras-ai-chips",
+    "body": "AMD와 Cerebras Systems가 손잡고 AI 추론(inference) 성능을 극대화하는 새로운 협업 솔루션을 발표했다. 두 회사는 'Advancing AI 2026' 행사에서 AMD의 헬리오스(Helios) 랙스케일 인프라와 세레브라스의 웨이퍼스케일엔진(WSE)을 결합한 분리형(disaggregated) AI 추론 워크플로우를 공개했다. AMD 헬리오스가 대규모 처리량을 담당하는 고성능 엔진 역할을 하고, 세레브라스의 웨이퍼스케일엔진이 초저지연·초고속 토큰 생성을 맡는 방식으로 역할을 분담한다. 두 시스템을 결합하면 와트당 초당 토큰 처리량이 최대 5배까지 향상되는 것으로 알려졌다. 세레브라스는 이번 협업을 통해 AMD 헬리오스 시스템을 자사 데이터센터에 도입할 계획이며, 이 통합 솔루션은 올해 하반기 중 세레브라스 클라우드를 통해 처음 상용 서비스될 예정이다. 업계에서는 이번 협업이 AI 칩 시장을 사실상 독점하고 있는 엔비디아에 맞선 대안 생태계 구축의 신호탄으로 해석하고 있으며, 향후 AI 인프라 시장이 단일 아키텍처가 아닌 복합 컴퓨팅 시스템 중심으로 재편될 가능성을 시사한다는 평가가 나온다.",
+    "path": "CLAUDE/IT/2026-07-26-news.md"
+  },
+  {
+    "id": 670,
+    "category": "IT",
+    "fileDate": "2026-07-26",
+    "title": "오라클, 사상 최대 규모 1,449건 보안 패치 공개",
+    "source": "Forbes",
+    "date": "2026-07-24",
+    "link": "https://www.forbes.com/sites/daveywinder/2026/07/24/yikes-oracle-just-confirmed-1449-security-patches-for-july/",
+    "body": "오라클이 2026년 7월 분기 정기 보안 업데이트(CPU)를 통해 사상 최대 규모인 1,449건의 보안 패치를 공개했다. 이는 1,235개의 개별 CVE(취약점 식별번호)를 수정하는 조치로, 데이터베이스, 클라우드 서비스, 기업용 애플리케이션, 인프라 제품 등 32개 오라클 제품군 전반을 포괄한다. 전체 패치 중 18%가 '치명적(critical)' 등급으로 분류됐고, 절반이 넘는 52.7%가 '높음(high)' 등급, 24.7%가 '중간(medium)' 등급을 받았다. 특히 오라클 E-비즈니스 스위트가 410건으로 전체 패치의 28.3%를 차지해 가장 많은 수정 사항이 발견된 제품으로 나타났다. 다수의 취약점이 인증 없이 네트워크를 통해 원격으로 악용 가능한 것으로 확인돼 데이터베이스 서버, 퓨전 미들웨어, MySQL, E-비즈니스 스위트, JD에드워즈, 오라클 커뮤니케이션 플랫폼 등이 광범위하게 영향을 받는다. 보안 전문가들은 이번 대규모 패치가 오라클이 지난 4월 발표한 AI 기반 취약점 발굴 시스템 도입 이후 자체 발견 버그 수가 약 10배 급증한 결과로 분석하고 있다. AI가 취약점 탐지 속도를 높이는 동시에, 방어하는 기업들의 패치 관리 부담을 오히려 가중시킬 수 있다는 우려도 함께 제기된다.",
+    "path": "CLAUDE/IT/2026-07-26-news.md"
+  },
+  {
+    "id": 671,
+    "category": "IT",
+    "fileDate": "2026-07-26",
+    "title": "애플, 엔비디아·구글 손잡고 '애플 인텔리전스' 클라우드 확장",
+    "source": "CIO Dive",
+    "date": "2026-06",
+    "link": "https://www.ciodive.com/news/apple-teams-up-google-nvidia-expand-private-cloud-capabilities/822431/",
+    "body": "애플이 자체 프라이버시 중심 클라우드 인프라인 '프라이빗 클라우드 컴퓨트(PCC)'를 처음으로 자사 데이터센터 밖까지 확장하기로 했다. WWDC에서 발표된 이번 확장은 구글, 엔비디아와의 협력을 통해 이뤄지며, 구글 클라우드 서버에 탑재된 엔비디아 블랙웰(Blackwell) B200 GPU를 활용해 애플 인텔리전스의 고난도 연산 작업을 처리한다. 에이전틱 도구 사용이나 복합적 추론처럼 부담이 큰 작업은 이번에 확장된 구글 클라우드 인프라에서 처리되는 반면, 상대적으로 가벼운 AI 작업은 계속해서 아이폰과 맥의 온디바이스 실리콘에서 실행된다. 이번 협력의 중심에는 애플의 3세대 파운데이션 모델(AFM 3)이 있으며, 이는 대폭 업그레이드된 시리(Siri)를 포함한 차세대 애플 인텔리전스 기능을 뒷받침한다. 10년 넘게 제한적인 관계를 유지해 온 애플과 엔비디아가 이번 협력으로 한층 가까워졌다는 평가가 나오며, 실제로 엔비디아 측은 구글 클라우드에 배치된 자사 GPU가 애플 인텔리전스 구동을 돕고 있다고 공식 확인했다. 이는 서로 경쟁 관계에 있는 세 빅테크 기업 간의 이례적인 공개 협력 사례로 주목받고 있다.",
+    "path": "CLAUDE/IT/2026-07-26-news.md"
+  },
+  {
+    "id": 672,
+    "category": "IT",
+    "fileDate": "2026-07-26",
+    "title": "삼성전자, 2026년 2분기 영업이익 89조 원 잠정실적 발표",
+    "source": "Samsung Newsroom Korea",
+    "date": "2026-07-07",
+    "link": "https://news.samsung.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-2026%EB%85%84-2%EB%B6%84%EA%B8%B0-%EC%9E%A0%EC%A0%95%EC%8B%A4%EC%A0%81-%EB%B0%9C%ED%91%9C",
+    "body": "삼성전자가 7월 7일 오전 2026년 2분기 잠정실적을 발표했다. 매출 171조 원, 영업이익 89조 4,000억 원을 기록하며 시장의 예상을 크게 웃도는 실적을 냈다. 전 분기 대비로는 매출이 27.74%, 영업이익이 56.21% 증가했고, 전년 동기 대비로는 매출이 129.31%, 영업이익은 무려 1,810.26% 급증하며 반도체 업황 회복과 AI 수요 확대의 수혜를 뚜렷하게 반영했다. 다만 이번 발표는 사업부문별 세부 수치를 포함하지 않는 잠정실적으로, 메모리 반도체·파운드리·모바일·디스플레이 등 부문별 성과는 오는 7월 30일 오전 10시 예정된 확정실적 컨퍼런스콜에서 공개될 예정이다. 업계에서는 이번 어닝서프라이즈의 배경으로 HBM(고대역폭메모리)을 비롯한 AI향 메모리 반도체 가격 강세와 출하량 증가가 크게 작용했을 것으로 분석하고 있다. 시장에서는 확정실적 발표에서 공개될 반도체 부문 세부 수익성과 향후 설비투자 계획에 관심이 쏠리고 있다.",
+    "path": "CLAUDE/IT/2026-07-26-news.md"
+  },
+  {
+    "id": 663,
     "category": "IT",
     "fileDate": "2026-07-25",
     "title": "젠슨 황 \"SK와 5,000억 달러 파트너십\"...한국 기업들과 대규모 AI 동맹 발표",
@@ -11,7 +66,7 @@
     "path": "CLAUDE/IT/2026-07-25-news.md"
   },
   {
-    "id": 604,
+    "id": 664,
     "category": "IT",
     "fileDate": "2026-07-25",
     "title": "\"AI 통제 안 된다\"...엔비디아·MS 등 빅테크, 오픈웨이트 규제에 집단 반발",
@@ -22,7 +77,7 @@
     "path": "CLAUDE/IT/2026-07-25-news.md"
   },
   {
-    "id": 605,
+    "id": 665,
     "category": "IT",
     "fileDate": "2026-07-25",
     "title": "AI발 메모리 대란, 자동차 업계도 덮쳤다",
@@ -33,7 +88,7 @@
     "path": "CLAUDE/IT/2026-07-25-news.md"
   },
   {
-    "id": 606,
+    "id": 666,
     "category": "IT",
     "fileDate": "2026-07-25",
     "title": "AMD, 앤트로픽에 최대 50억 달러 투자...클로드로 CUDA 아성에 도전",
@@ -44,7 +99,7 @@
     "path": "CLAUDE/IT/2026-07-25-news.md"
   },
   {
-    "id": 607,
+    "id": 667,
     "category": "IT",
     "fileDate": "2026-07-25",
     "title": "삼성 갤럭시 언팩 2026...폴더블 2종 동시 출시하고 첫 AI 스마트글래스 공개",
@@ -55,7 +110,7 @@
     "path": "CLAUDE/IT/2026-07-25-news.md"
   },
   {
-    "id": 598,
+    "id": 658,
     "category": "IT",
     "fileDate": "2026-07-02",
     "title": "SK하이닉스, 나스닥 등록서 수정 제출…공모조건은 여전히 미정",
@@ -66,7 +121,7 @@
     "path": "CLAUDE/IT/2026-07-02-news.md"
   },
   {
-    "id": 599,
+    "id": 659,
     "category": "IT",
     "fileDate": "2026-07-02",
     "title": "삼성·SK하이닉스, 美서 D램 가격담합 집단소송",
@@ -77,7 +132,7 @@
     "path": "CLAUDE/IT/2026-07-02-news.md"
   },
   {
-    "id": 600,
+    "id": 660,
     "category": "IT",
     "fileDate": "2026-07-02",
     "title": "잠수복 입은 '사이보그 바퀴벌레' 개발…물속·우주 화성까지 보낸다",
@@ -88,7 +143,7 @@
     "path": "CLAUDE/IT/2026-07-02-news.md"
   },
   {
-    "id": 601,
+    "id": 661,
     "category": "IT",
     "fileDate": "2026-07-02",
     "title": "호주 경쟁당국, 아마존 프라임 비디오 '불공정 계약' 혐의로 제소",
@@ -99,7 +154,7 @@
     "path": "CLAUDE/IT/2026-07-02-news.md"
   },
   {
-    "id": 602,
+    "id": 662,
     "category": "IT",
     "fileDate": "2026-07-02",
     "title": "AI 데이터센터 투자 5년간 7.2배 팽창…반도체 증설 '쩐의 전쟁' 개시",
@@ -110,7 +165,7 @@
     "path": "CLAUDE/IT/2026-07-02-news.md"
   },
   {
-    "id": 593,
+    "id": 653,
     "category": "IT",
     "fileDate": "2026-06-27",
     "title": "IBM, 세계 최초 '0.7나노' 칩 기술 공개…나노스택 3D 구조 혁신",
@@ -121,7 +176,7 @@
     "path": "CLAUDE/IT/2026-06-27-news.md"
   },
   {
-    "id": 594,
+    "id": 654,
     "category": "IT",
     "fileDate": "2026-06-27",
     "title": "애플, 메모리 대란에 맥·아이패드 가격 최대 25% 인상…칩 로드맵도 수정",
@@ -132,7 +187,7 @@
     "path": "CLAUDE/IT/2026-06-27-news.md"
   },
   {
-    "id": 595,
+    "id": 655,
     "category": "IT",
     "fileDate": "2026-06-27",
     "title": "알파벳, 인텔에 맞춤형 AI 칩 생산 위탁…TPU 공급망 다변화",
@@ -143,7 +198,7 @@
     "path": "CLAUDE/IT/2026-06-27-news.md"
   },
   {
-    "id": 596,
+    "id": 656,
     "category": "IT",
     "fileDate": "2026-06-27",
     "title": "오픈AI, 최고 성능 'GPT-5.6' 3종 공개…\"정부 요청으로 제한적 출시\"",
@@ -154,7 +209,7 @@
     "path": "CLAUDE/IT/2026-06-27-news.md"
   },
   {
-    "id": 597,
+    "id": 657,
     "category": "IT",
     "fileDate": "2026-06-27",
     "title": "SK텔레콤·엔비디아, 'AI 인프라' 풀스택 동맹 구축",
@@ -165,7 +220,7 @@
     "path": "CLAUDE/IT/2026-06-27-news.md"
   },
   {
-    "id": 588,
+    "id": 648,
     "category": "IT",
     "fileDate": "2026-06-25",
     "title": "SK하이닉스, 290억 달러 규모 나스닥 ADR 상장 추진",
@@ -176,7 +231,7 @@
     "path": "CLAUDE/IT/2026-06-25-news.md"
   },
   {
-    "id": 589,
+    "id": 649,
     "category": "IT",
     "fileDate": "2026-06-25",
     "title": "오라클, AI 도입 이유로 2만 1000명 감원",
@@ -187,7 +242,7 @@
     "path": "CLAUDE/IT/2026-06-25-news.md"
   },
   {
-    "id": 590,
+    "id": 650,
     "category": "IT",
     "fileDate": "2026-06-25",
     "title": "마이크론, 앤트로픽과 AI 인프라 공급 계약 체결",
@@ -198,7 +253,7 @@
     "path": "CLAUDE/IT/2026-06-25-news.md"
   },
   {
-    "id": 591,
+    "id": 651,
     "category": "IT",
     "fileDate": "2026-06-25",
     "title": "스페이스X, 리플렉션AI와 63억 달러 규모 AI 컴퓨팅 계약 체결",
@@ -209,7 +264,7 @@
     "path": "CLAUDE/IT/2026-06-25-news.md"
   },
   {
-    "id": 592,
+    "id": 652,
     "category": "IT",
     "fileDate": "2026-06-25",
     "title": "바이트댄스, 30초 분량 4K 영상 생성 AI 모델 'Seedance 2.5' 공개",
@@ -220,7 +275,7 @@
     "path": "CLAUDE/IT/2026-06-25-news.md"
   },
   {
-    "id": 583,
+    "id": 643,
     "category": "IT",
     "fileDate": "2026-06-24",
     "title": "엔비디아·마이크론 등 반도체株 급락, 나스닥·S&P500 동반 하락",
@@ -231,7 +286,7 @@
     "path": "CLAUDE/IT/2026-06-24-news.md"
   },
   {
-    "id": 584,
+    "id": 644,
     "category": "IT",
     "fileDate": "2026-06-24",
     "title": "앤트로픽 클로드(Claude), 대규모 장애 발생 후 복구",
@@ -242,7 +297,7 @@
     "path": "CLAUDE/IT/2026-06-24-news.md"
   },
   {
-    "id": 585,
+    "id": 645,
     "category": "IT",
     "fileDate": "2026-06-24",
     "title": "오라클, AI 도입 가속화로 전체 인력의 13% 감축",
@@ -253,7 +308,7 @@
     "path": "CLAUDE/IT/2026-06-24-news.md"
   },
   {
-    "id": 586,
+    "id": 646,
     "category": "IT",
     "fileDate": "2026-06-24",
     "title": "SK하이닉스, 차세대 HBM4E 12단 샘플 주요 고객사에 공급",
@@ -264,7 +319,7 @@
     "path": "CLAUDE/IT/2026-06-24-news.md"
   },
   {
-    "id": 587,
+    "id": 647,
     "category": "IT",
     "fileDate": "2026-06-24",
     "title": "구글 제미나이 3.5 프로, 제한적 엔터프라이즈 프리뷰 단계",
@@ -275,7 +330,7 @@
     "path": "CLAUDE/IT/2026-06-24-news.md"
   },
   {
-    "id": 578,
+    "id": 638,
     "category": "IT",
     "fileDate": "2026-06-23",
     "title": "GIST, VR 몰입 유지하는 '셀프블렌딩' AI 기술 개발",
@@ -286,7 +341,7 @@
     "path": "CLAUDE/IT/2026-06-23-news.md"
   },
   {
-    "id": 579,
+    "id": 639,
     "category": "IT",
     "fileDate": "2026-06-23",
     "title": "구글, 오픈소스 '디퓨전젬마' 공개…생성 속도 4배 향상",
@@ -297,7 +352,7 @@
     "path": "CLAUDE/IT/2026-06-23-news.md"
   },
   {
-    "id": 580,
+    "id": 640,
     "category": "IT",
     "fileDate": "2026-06-23",
     "title": "MIT, 로봇에 '시공간 기억' 부여하는 'DAAAM' 개발",
@@ -308,7 +363,7 @@
     "path": "CLAUDE/IT/2026-06-23-news.md"
   },
   {
-    "id": 581,
+    "id": 641,
     "category": "IT",
     "fileDate": "2026-06-23",
     "title": "MS, 유럽 AI 기업 모델 자사 플랫폼에 수용",
@@ -319,7 +374,7 @@
     "path": "CLAUDE/IT/2026-06-23-news.md"
   },
   {
-    "id": 582,
+    "id": 642,
     "category": "IT",
     "fileDate": "2026-06-23",
     "title": "삼성전자, 반도체 공정 데이터 공유 플랫폼 'DSEP' 확대",
@@ -330,7 +385,7 @@
     "path": "CLAUDE/IT/2026-06-23-news.md"
   },
   {
-    "id": 573,
+    "id": 633,
     "category": "IT",
     "fileDate": "2026-06-19",
     "title": "구글, Gemini 3.5 Flash 정식 출시…3.1 Flash-Lite로 효율성 강화",
@@ -341,7 +396,7 @@
     "path": "CLAUDE/IT/2026-06-19-news.md"
   },
   {
-    "id": 574,
+    "id": 634,
     "category": "IT",
     "fileDate": "2026-06-19",
     "title": "에이전틱 AI, 챗봇 넘어 '업무 완수형' AI로 전환 가속",
@@ -352,7 +407,7 @@
     "path": "CLAUDE/IT/2026-06-19-news.md"
   },
   {
-    "id": 575,
+    "id": 635,
     "category": "IT",
     "fileDate": "2026-06-19",
     "title": "홍콩대, 절대영도 부근 작동 '뇌모사 칩' 개발",
@@ -363,7 +418,7 @@
     "path": "CLAUDE/IT/2026-06-19-news.md"
   },
   {
-    "id": 576,
+    "id": 636,
     "category": "IT",
     "fileDate": "2026-06-19",
     "title": "삼성전자·SK하이닉스, 외부 생성형 AI 공식 도입 확산",
@@ -374,7 +429,7 @@
     "path": "CLAUDE/IT/2026-06-19-news.md"
   },
   {
-    "id": 577,
+    "id": 637,
     "category": "IT",
     "fileDate": "2026-06-19",
     "title": "글로벌 반도체 업계, 6월 주요 동향 요약 발표",
@@ -385,7 +440,7 @@
     "path": "CLAUDE/IT/2026-06-19-news.md"
   },
   {
-    "id": 568,
+    "id": 628,
     "category": "IT",
     "fileDate": "2026-06-14",
     "title": "Anthropic AI 수출 통제 분쟁 — 美 정부, Fable 5·Mythos 5 글로벌 접근 차단",
@@ -396,7 +451,7 @@
     "path": "CLAUDE/IT/2026-06-14-news.md"
   },
   {
-    "id": 569,
+    "id": 629,
     "category": "IT",
     "fileDate": "2026-06-14",
     "title": "Microsoft·Google, Anthropic·OpenAI에 AI 코딩 모델 정면 도전",
@@ -407,7 +462,7 @@
     "path": "CLAUDE/IT/2026-06-14-news.md"
   },
   {
-    "id": 570,
+    "id": 630,
     "category": "IT",
     "fileDate": "2026-06-14",
     "title": "한국 AI 기본법 시행 — 세계 최초 포괄적 AI 규제 프레임워크 현실화",
@@ -418,7 +473,7 @@
     "path": "CLAUDE/IT/2026-06-14-news.md"
   },
   {
-    "id": 571,
+    "id": 631,
     "category": "IT",
     "fileDate": "2026-06-14",
     "title": "Moonshot AI, Kimi K2.7-Code 출시 — 추론 토큰 30% 절감 성능",
@@ -429,7 +484,7 @@
     "path": "CLAUDE/IT/2026-06-14-news.md"
   },
   {
-    "id": 572,
+    "id": 632,
     "category": "IT",
     "fileDate": "2026-06-14",
     "title": "화웨이 HarmonyOS 7 공개 — 2,000+ AI 에이전트 연동 지원",
@@ -440,7 +495,7 @@
     "path": "CLAUDE/IT/2026-06-14-news.md"
   },
   {
-    "id": 563,
+    "id": 623,
     "category": "IT",
     "fileDate": "2026-06-10",
     "title": "에이전틱 AI 시대 본격 개막 — 자율 판단·업무 수행 AI로 진화",
@@ -451,7 +506,7 @@
     "path": "CLAUDE/IT/2026-06-10-news.md"
   },
   {
-    "id": 564,
+    "id": 624,
     "category": "IT",
     "fileDate": "2026-06-10",
     "title": "폴라리스AI·MDS테크, 산업현장형 AI 인프라 협약 체결",
@@ -462,7 +517,7 @@
     "path": "CLAUDE/IT/2026-06-10-news.md"
   },
   {
-    "id": 565,
+    "id": 625,
     "category": "IT",
     "fileDate": "2026-06-10",
     "title": "브로드컴 AI 반도체 매출 143% 급증 — 108억 달러 달성",
@@ -473,7 +528,7 @@
     "path": "CLAUDE/IT/2026-06-10-news.md"
   },
   {
-    "id": 566,
+    "id": 626,
     "category": "IT",
     "fileDate": "2026-06-10",
     "title": "Desmos, SAT·AP 공식 계산기로 미국 전역 채택",
@@ -484,7 +539,7 @@
     "path": "CLAUDE/IT/2026-06-10-news.md"
   },
   {
-    "id": 567,
+    "id": 627,
     "category": "IT",
     "fileDate": "2026-06-10",
     "title": "핀테크 IT 동향 — AI·블록체인 결합 금융 서비스 확산",
@@ -495,7 +550,7 @@
     "path": "CLAUDE/IT/2026-06-10-news.md"
   },
   {
-    "id": 558,
+    "id": 618,
     "category": "IT",
     "fileDate": "2026-06-09",
     "title": "Anthropic, SEC에 IPO 신청 — 조만간 시가총액 1조 달러 기업 등장하나",
@@ -506,7 +561,7 @@
     "path": "CLAUDE/IT/2026-06-09-news.md"
   },
   {
-    "id": 559,
+    "id": 619,
     "category": "IT",
     "fileDate": "2026-06-09",
     "title": "구글·SpaceX AI 컴퓨팅 계약 — 월 9억 2,000만 달러 규모",
@@ -517,7 +572,7 @@
     "path": "CLAUDE/IT/2026-06-09-news.md"
   },
   {
-    "id": 560,
+    "id": 620,
     "category": "IT",
     "fileDate": "2026-06-09",
     "title": "Claude Opus 4.8 출시 — SWE-bench 88.6% 달성",
@@ -528,7 +583,7 @@
     "path": "CLAUDE/IT/2026-06-09-news.md"
   },
   {
-    "id": 561,
+    "id": 621,
     "category": "IT",
     "fileDate": "2026-06-09",
     "title": "에이전틱 AI 확산 — 스스로 판단하고 행동하는 AI 시대 개막",
@@ -539,7 +594,7 @@
     "path": "CLAUDE/IT/2026-06-09-news.md"
   },
   {
-    "id": 562,
+    "id": 622,
     "category": "IT",
     "fileDate": "2026-06-09",
     "title": "스마트테크 코리아 2026 — 'AI Everywhere' 주제로 개최 예정",
@@ -550,7 +605,7 @@
     "path": "CLAUDE/IT/2026-06-09-news.md"
   },
   {
-    "id": 553,
+    "id": 613,
     "category": "IT",
     "fileDate": "2026-06-08",
     "title": "OpenAI, ChatGPT에 'Dreaming V3' 메모리 시스템 도입 — 수년치 대화 자동 종합",
@@ -561,7 +616,7 @@
     "path": "CLAUDE/IT/2026-06-08-news.md"
   },
   {
-    "id": 554,
+    "id": 614,
     "category": "IT",
     "fileDate": "2026-06-08",
     "title": "Google Gemini 3.5 Flash 정식 출시 — 프런티어급 성능, 속도 4배 향상",
@@ -572,7 +627,7 @@
     "path": "CLAUDE/IT/2026-06-08-news.md"
   },
   {
-    "id": 555,
+    "id": 615,
     "category": "IT",
     "fileDate": "2026-06-08",
     "title": "COMPUTEX 2026 개막 — AI 인프라 수요 폭증 속 차세대 GPU·칩 경쟁",
@@ -583,7 +638,7 @@
     "path": "CLAUDE/IT/2026-06-08-news.md"
   },
   {
-    "id": 556,
+    "id": 616,
     "category": "IT",
     "fileDate": "2026-06-08",
     "title": "광기반 AI 칩 돌파구 — 빛으로 AI 연산, 에너지 소비 획기적 절감",
@@ -594,7 +649,7 @@
     "path": "CLAUDE/IT/2026-06-08-news.md"
   },
   {
-    "id": 557,
+    "id": 617,
     "category": "IT",
     "fileDate": "2026-06-08",
     "title": "Grok 등 AI 콘텐츠 오남용 대응 — 개인정보보호위 국제 공동 선언 채택",
